@@ -11,7 +11,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
- 
+
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://camplandau.netlify.app/">
@@ -25,14 +25,14 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Camp Landau logo">
 <meta property="og:locale" content="en_US">
- 
+
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Camp Landau – The Most Gishmak Summer of Your Life!">
 <meta name="twitter:description" content="Beit Shemesh's #1 summer camp for English-speaking boys (grades 1–8). Sports, swimming, trips, ruach, games & more! July 26 – August 7, 2026.">
 <meta name="twitter:image" content="https://camplandau.netlify.app/assets/camp-landau-share.png">
 <meta name="twitter:image:alt" content="Camp Landau logo">
- 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -40,7 +40,7 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden}
 :root{--primary:#e85d26;--pd:#c44d1a;--six:#f5a623}
- 
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scaleIn{from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -48,12 +48,12 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hid
 @keyframes pulse-ring{0%{transform:scale(1);opacity:.9}50%{transform:scale(1.13);opacity:.45}100%{transform:scale(1);opacity:.9}}
 @keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
 @keyframes pulse-play{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
- 
+
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
 .reveal-l{opacity:0;transform:translateX(-26px);transition:opacity .65s ease,transform .65s ease}
 .reveal-r{opacity:0;transform:translateX(26px);transition:opacity .65s ease,transform .65s ease}
 .reveal.on,.reveal-l.on,.reveal-r.on{opacity:1;transform:none}
- 
+
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.93);backdrop-filter:blur(12px);border-bottom:4px solid rgba(232,93,38,.3);box-shadow:0 1px 8px rgba(0,0,0,.06);transition:box-shadow .3s}
 nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.13)}
 .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
@@ -68,7 +68,7 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.13)}
 .btn-reg-pulse{position:absolute;inset:-4px;border-radius:50px;background:var(--primary);animation:pulse-ring 1.8s ease-in-out infinite;pointer-events:none}
 .btn-reg{position:relative;background:var(--primary);color:#fff;border-radius:50px;border:none;padding:10px 22px;font-family:'Figtree',sans-serif;font-size:14px;font-weight:700;cursor:pointer;z-index:1;transition:background .2s,transform .15s;white-space:nowrap}
 .btn-reg:hover{background:var(--pd);transform:scale(1.05)}
- 
+
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px;width:42px;height:42px;justify-content:center;align-items:center}
 .hamburger span{width:24px;height:2.5px;background:#1a1a1a;border-radius:99px;transition:all .3s ease;display:block}
 .hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
@@ -80,7 +80,7 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.13)}
 .mobile-menu button:hover{color:var(--primary)}
 .mobile-menu button:last-of-type{border-bottom:none}
 .mobile-menu .btn-reg{margin-top:12px;width:100%;padding:14px;font-size:16px;text-align:center}
- 
+
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;animation:heroZoom 8s ease-out forwards}
@@ -102,13 +102,13 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.13)}
 .hbtn-sec:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
 .scroll-arrow{background:none;border:none;color:rgba(255,255,255,.6);font-size:28px;cursor:pointer;display:inline-block;animation:float 2.5s ease-in-out infinite;margin-top:36px;transition:color .2s}
 .scroll-arrow:hover{color:#fff}
- 
+
 section{padding:80px 24px}
 .si{max-width:1100px;margin:0 auto}
 .sec-label{font-family:'Figtree',sans-serif;color:var(--primary);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:8px;text-align:center}
 .sec-title{font-family:'Figtree',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:900;color:#1a1a1a;text-align:center;margin-bottom:16px}
 .sec-sub{font-size:16px;color:#666;text-align:center;max-width:620px;margin:0 auto 52px;line-height:1.65}
- 
+
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;margin-top:36px}
 .img-wrap{position:relative}
 .img-wrap::before{content:'';position:absolute;inset:-8px;border-radius:20px;background:linear-gradient(135deg,#ef4444,#f59e0b,#22c55e,#3b82f6);opacity:.55;filter:blur(4px);transition:opacity .3s}
@@ -122,7 +122,7 @@ section{padding:80px 24px}
 .acard:hover .acard-icon{transform:scale(1.15) rotate(-5deg)}
 .acard h3{font-family:'Figtree',sans-serif;font-size:15px;font-weight:700;margin-bottom:5px}
 .acard p{font-size:13px;color:#666;line-height:1.5}
- 
+
 .act-bg{background:#f9fafb}
 .act-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .act-card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 1px 4px rgba(0,0,0,.06);border:2px solid;transition:all .3s}
@@ -131,7 +131,7 @@ section{padding:80px 24px}
 .act-card:hover .act-icon{transform:scale(1.15) rotate(-6deg)}
 .act-card h3{font-family:'Figtree',sans-serif;font-size:15px;font-weight:700;margin-bottom:5px}
 .act-card p{font-size:13px;color:#666;line-height:1.5}
- 
+
 .gallery-rainbow{height:6px;background:linear-gradient(to right,#ef4444,#f59e0b,#22c55e,#3b82f6,#a855f7);border-radius:99px;margin-bottom:22px}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;grid-auto-flow:dense}
 .gitem{border-radius:14px;overflow:hidden;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);cursor:pointer;transition:all .3s;position:relative;background:#f3f4f6}
@@ -144,7 +144,11 @@ section{padding:80px 24px}
 .lightbox img{max-width:90vw;max-height:88vh;border-radius:12px;object-fit:contain}
 .lb-close{position:fixed;top:18px;right:22px;color:#fff;font-size:36px;cursor:pointer;background:none;border:none;line-height:1;transition:transform .2s;z-index:10001}
 .lb-close:hover{transform:scale(1.2) rotate(90deg)}
- 
+.lb-arrow{position:fixed;top:50%;transform:translateY(-50%);color:#fff;font-size:48px;cursor:pointer;background:rgba(0,0,0,.4);border:none;line-height:1;z-index:10001;padding:12px 18px;border-radius:12px;transition:background .2s;user-select:none}
+.lb-arrow:hover{background:rgba(0,0,0,.7)}
+.lb-arrow.prev{left:16px}
+.lb-arrow.next{right:16px}
+
 /* VIDEOS - thumbnail approach */
 .vid-bg{background:#f3f4f6}
 .vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
@@ -157,16 +161,16 @@ section{padding:80px 24px}
 .play-btn::before{content:'';width:0;height:0;border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:5px}
 .vthumb:hover .play-btn{background:#ff0000;transform:translate(-50%,-50%) scale(1.15);box-shadow:0 12px 32px rgba(255,0,0,.5)}
 .vthumb .vlabel{position:absolute;bottom:12px;left:14px;right:14px;color:#fff;font-family:'Figtree',sans-serif;font-size:13px;font-weight:700;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.6)}
- 
+
 /* Video lightbox */
 .vid-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;align-items:center;justify-content:center;padding:20px}
 .vid-lightbox.open{display:flex;animation:fadeUp .3s ease}
 .vid-lightbox-inner{width:100%;max-width:1000px;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;position:relative}
 .vid-lightbox-inner iframe{width:100%;height:100%;border:none;display:block}
- 
+
 .yt-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;background:#ff0000;color:#fff;font-family:'Figtree',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;text-decoration:none;border:none;box-shadow:0 4px 16px rgba(255,0,0,.35)}
 .yt-btn:hover{background:#cc0000;transform:translateY(-2px)}
- 
+
 .music-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
 .mplat{display:flex;flex-direction:column;gap:14px}
 .plat-hd{display:flex;align-items:center;gap:12px;margin-bottom:4px}
@@ -185,7 +189,7 @@ section{padding:80px 24px}
 .btn-six:hover{background:#ffba3a;transform:translateY(-1px);box-shadow:0 6px 22px rgba(245,166,35,.45)}
 .music-note{margin-top:20px;background:#f9fafb;border-radius:12px;padding:14px 18px;border:1px solid #e5e7eb;font-size:13px;color:#666;line-height:1.6}
 .music-note a{font-weight:600;text-decoration:none}
- 
+
 .contact-bg{background:#f9fafb}
 .ccards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 .pricing-banner{background:linear-gradient(135deg,#1a3a6b,#0d2448);border-radius:20px;padding:26px 30px;color:#fff;border:3px solid rgba(255,215,0,.4);box-shadow:0 8px 32px rgba(0,0,0,.2);grid-column:1/-1}
@@ -233,7 +237,7 @@ footer{background:#1a1a1a;color:#fff;padding:40px 24px 24px}
 footer p{font-size:13px;color:rgba(255,255,255,.5)}
 .ft-div{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);text-align:center}
 .ft-div p{font-size:12px;color:rgba(255,255,255,.3)}
- 
+
 @media(max-width:768px){
   .nav-links{display:none}
   .hamburger{display:flex}
@@ -327,7 +331,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 </script>
 </head>
 <body>
- 
+
 <nav id="nav">
   <div class="nav-inner">
     <img src="https://media.base44.com/images/public/6a02dcbe52ad46f953869a81/ee451fe8d_Untitleddesign5.png" alt="Camp Landau" class="nav-logo-img" id="navLogo">
@@ -346,7 +350,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <button class="hamburger" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
- 
+
 <div class="mobile-menu" id="mobMenu">
   <button onclick="goM('about')">About</button>
   <button onclick="goM('activities')">Activities</button>
@@ -356,7 +360,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   <button onclick="goM('contact')">Contact</button>
   <button onclick="goM('contact')" class="btn-reg">Register Now!</button>
 </div>
- 
+
 <section class="hero" id="hero">
   <div class="hero-bg">
     <img src="https://media.base44.com/images/public/6a02dcbe52ad46f953869a81/92290f8b5_WhatsAppImage2026-05-12at1103371.jpg" alt="Camp Landau">
@@ -378,7 +382,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <div><button class="scroll-arrow" onclick="go('about')">↓</button></div>
   </div>
 </section>
- 
+
 <section id="about">
   <div class="si">
     <span class="sec-label reveal">About Camp Landau</span>
@@ -397,7 +401,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     </div>
   </div>
 </section>
- 
+
 <section id="activities" class="act-bg">
   <div class="si">
     <span class="sec-label reveal">What We Do</span>
@@ -415,7 +419,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     </div>
   </div>
 </section>
- 
+
 <section id="gallery">
   <div class="si">
     <span class="sec-label reveal">Photo Gallery</span>
@@ -425,12 +429,14 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <div class="gallery-grid" id="gGrid"></div>
   </div>
 </section>
- 
+
 <div class="lightbox" id="lb" onclick="closeLb()">
   <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-arrow prev" onclick="event.stopPropagation();lbNav(-1)">&#8249;</button>
+  <button class="lb-arrow next" onclick="event.stopPropagation();lbNav(1)">&#8250;</button>
   <img id="lbImg" src="" alt="Camp photo">
 </div>
- 
+
 <section id="videos" class="vid-bg">
   <div class="si">
     <span class="sec-label reveal">Watch &amp; Enjoy</span>
@@ -442,13 +448,13 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     </div>
   </div>
 </section>
- 
+
 <!-- Video lightbox -->
 <div class="vid-lightbox" id="vidLb" onclick="closeVidLb(event)">
   <button class="lb-close" onclick="closeVidLb(event)">✕</button>
   <div class="vid-lightbox-inner" id="vidLbInner"></div>
 </div>
- 
+
 <section id="music">
   <div class="si">
     <span class="sec-label reveal">Listen &amp; Vibe</span>
@@ -481,7 +487,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <div class="music-note reveal">🎵 Stream on <a href="https://24six.app/app/music/artist/2650" target="_blank" style="color:var(--six)">24six</a> or <a href="https://open.spotify.com/artist/5GvoGwRrTwcms4Vo4EOi9o" target="_blank" style="color:#1DB954">Spotify</a>. The soundtrack to your GISHMAK summer!</div>
   </div>
 </section>
- 
+
 <section id="contact" class="contact-bg">
   <div class="si">
     <span class="sec-label reveal">Get In Touch</span>
@@ -555,7 +561,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     </div>
   </div>
 </section>
- 
+
 <footer>
   <div class="ft-inner">
     <div class="ft-rainbow"></div>
@@ -567,7 +573,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <div class="ft-div"><p>© 2026 Camp Landau. All rights reserved.</p></div>
   </div>
 </footer>
- 
+
 <script>
 function go(id){
   const el=document.getElementById(id);
@@ -592,19 +598,19 @@ document.getElementById('navLogo').addEventListener('click',()=>{closeMenu();win
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 },{passive:true});
- 
+
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
 },{threshold:0.1});
 document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
- 
+
 // ── VIDEOS ──
 const videos=[
   {id:'13LNH-TtkY8', label:'Camp Landau Highlights'},
   {id:'xC4pA8HPUxs', label:'Best Moments'},
   {id:'b8J_Xug6CJM', label:'GISHMAK Summer'},
 ];
- 
+
 const vGrid=document.getElementById('vidGrid');
 videos.forEach((v,i)=>{
   const div=document.createElement('div');
@@ -618,7 +624,7 @@ videos.forEach((v,i)=>{
   div.addEventListener('click',()=>openVidLb(v.id));
   vGrid.appendChild(div);
 });
- 
+
 function openVidLb(videoId){
   const inner=document.getElementById('vidLbInner');
   inner.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`;
@@ -631,8 +637,12 @@ function closeVidLb(e){
   document.getElementById('vidLbInner').innerHTML='';
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeVidLb(e);}});
- 
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeLb();}
+  if(e.key==='ArrowRight'){lbNav(1);}
+  if(e.key==='ArrowLeft'){lbNav(-1);}
+});
+
 // ── GALLERY ──
 const GH_BASE='https://raw.githubusercontent.com/landaumusic700-tech/camp-landau-photos/main/';
 const enc=s=>encodeURIComponent(s);
@@ -669,7 +679,7 @@ galleryFiles.forEach((file,i)=>{
   grid.appendChild(div);
   obs.observe(div);
 });
- 
+
 function openLb(src){
   lbIdx=lbUrls.indexOf(src);
   document.getElementById('lbImg').src=src;
