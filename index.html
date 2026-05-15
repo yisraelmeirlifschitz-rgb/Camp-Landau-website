@@ -650,7 +650,10 @@ fetch(GH_API)
   .then(r=>r.json())
   .then(files=>{
     const imgs=files.filter(f=>f.name.match(/\.(jpg|jpeg|png|gif|webp)$/i));
-    imgs.forEach((file,i)=>{
+    let shown=0;
+    const LIMIT=8;
+
+    function addImg(file,i){
       const url=file.download_url;
       lbUrls.push(url);
       const div=document.createElement('div');
@@ -664,7 +667,24 @@ fetch(GH_API)
       div.addEventListener('click',()=>openLb(url));
       grid.appendChild(div);
       obs.observe(div);
-    });
+    }
+
+    imgs.slice(0,LIMIT).forEach((file,i)=>addImg(file,i));
+    shown=LIMIT;
+
+    if(imgs.length>LIMIT){
+      const btn=document.createElement('button');
+      btn.textContent='View More Photos 📸';
+      btn.style.cssText='display:block;margin:28px auto 0;padding:14px 36px;background:var(--primary);color:#fff;border:none;border-radius:50px;font-family:Figtree,sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s,transform .2s;box-shadow:0 6px 20px rgba(232,93,38,.35)';
+      btn.onmouseover=()=>{btn.style.background='#c44d1a';btn.style.transform='translateY(-2px)'};
+      btn.onmouseout=()=>{btn.style.background='var(--primary)';btn.style.transform='none'};
+      btn.addEventListener('click',()=>{
+        imgs.slice(shown).forEach((file,i)=>addImg(file,shown+i));
+        shown=imgs.length;
+        btn.remove();
+      });
+      grid.insertAdjacentElement('afterend',btn);
+    }
   });
 
 function openLb(src){
