@@ -641,41 +641,31 @@ document.addEventListener('keydown',e=>{
 });
 
 // ── GALLERY ──
-const GH_BASE='https://raw.githubusercontent.com/landaumusic700-tech/camp-landau-photos/main/';
-const enc=s=>encodeURIComponent(s);
-const galleryFiles=[
-  {name:'WhatsApp Image 2026-05-12 at 11.05.25 (3).jpeg', big:true},
-  {name:'WhatsApp Image 2026-05-12 at 11.03.37.jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.03.37 (1).jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.03.38 (5).jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.03.38 (4).jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.03.37 (2).jpeg', big:true},
-  {name:'WhatsApp Image 2026-05-12 at 11.03.38.jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.03.38 (1).jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.03.38 (2).jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.05.25.jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.05.25 (1).jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.05.25 (2).jpeg', big:false},
-  {name:'WhatsApp Image 2026-05-12 at 11.03.38 (3).jpeg', big:false},
-];
 let lbUrls=[];
 let lbIdx=0;
 const grid=document.getElementById('gGrid');
-galleryFiles.forEach((file,i)=>{
-  const url=GH_BASE+enc(file.name);
-  lbUrls.push(url);
-  const div=document.createElement('div');
-  div.className='gitem reveal'+(file.big?' big':'');
-  div.style.transitionDelay=(i*0.04)+'s';
-  if(!file.big)div.style.aspectRatio='4/3';
-  const img=document.createElement('img');
-  img.src=url;img.alt='Camp Landau photo';img.loading='lazy';
-  img.onerror=()=>{div.innerHTML='<div style="width:100%;height:100%;min-height:'+(file.big?'220':'120')+'px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:32px;color:#9ca3af">📸</div>'};
-  div.appendChild(img);
-  div.addEventListener('click',()=>openLb(url));
-  grid.appendChild(div);
-  obs.observe(div);
-});
+const GH_API='https://api.github.com/repos/yisraelmeirlifschitz-rgb/Camp-Landau-website/contents/gallery/gallery';
+
+fetch(GH_API)
+  .then(r=>r.json())
+  .then(files=>{
+    const imgs=files.filter(f=>f.name.match(/\.(jpg|jpeg|png|gif|webp)$/i));
+    imgs.forEach((file,i)=>{
+      const url=file.download_url;
+      lbUrls.push(url);
+      const div=document.createElement('div');
+      div.className='gitem reveal';
+      div.style.transitionDelay=(i*0.04)+'s';
+      div.style.aspectRatio='4/3';
+      const img=document.createElement('img');
+      img.src=url;img.alt='Camp Landau photo';img.loading='lazy';
+      img.onerror=()=>{div.style.display='none'};
+      div.appendChild(img);
+      div.addEventListener('click',()=>openLb(url));
+      grid.appendChild(div);
+      obs.observe(div);
+    });
+  });
 
 function openLb(src){
   lbIdx=lbUrls.indexOf(src);
