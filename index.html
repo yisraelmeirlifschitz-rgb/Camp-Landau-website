@@ -661,6 +661,28 @@ function lbNav(dir){
   lbIdx=(lbIdx+dir+lbUrls.length)%lbUrls.length;
   document.getElementById('lbImg').src=lbUrls[lbIdx];
 }
+
+// ── AUDIO DOWNLOADS ──
+fetch('https://api.github.com/repos/yisraelmeirlifschitz-rgb/Camp-Landau-website/contents/audio')
+  .then(r=>r.json())
+  .then(files=>{
+    const songs=files.filter(f=>f.name.match(/\.(mp3|wav|m4a|ogg|flac)$/i));
+    const list=document.getElementById('audioList');
+    if(!songs.length){list.textContent='No songs uploaded yet.';return;}
+    list.innerHTML='';
+    songs.forEach(song=>{
+      const a=document.createElement('a');
+      a.href=song.download_url;
+      a.download=song.name;
+      a.style.cssText='display:flex;align-items:center;gap:10px;padding:10px 14px;background:#f3f4f6;border-radius:10px;margin-bottom:8px;text-decoration:none;color:#1a1a1a;font-family:Figtree,sans-serif;font-size:14px;font-weight:600;transition:background .2s';
+      a.onmouseover=()=>a.style.background='#e5e7eb';
+      a.onmouseout=()=>a.style.background='#f3f4f6';
+      a.innerHTML=`<span style="font-size:20px">🎵</span> ${song.name.replace(/\.[^.]+$/,'')}`;
+      list.appendChild(a);
+    });
+  })
+  .catch(()=>document.getElementById('audioList').textContent='Could not load songs.');
+  
 </script>
 </body>
 </html>
