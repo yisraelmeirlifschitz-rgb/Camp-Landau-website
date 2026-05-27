@@ -60,10 +60,10 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.13)}
 .nav-logo-img{height:52px;width:auto;cursor:pointer;transition:opacity .2s;display:block}
 .nav-logo-img:hover{opacity:.8}
 .nav-links{display:flex;align-items:center;gap:20px}
-.nav-links button{font-family:'Figtree',sans-serif;font-size:14px;font-weight:600;color:#1a1a1a;background:none;border:none;cursor:pointer;padding:4px 0;position:relative;transition:color .2s}
-.nav-links button::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--primary);transition:width .25s}
-.nav-links button:hover{color:var(--primary)}
-.nav-links button:hover::after{width:100%}
+.nav-links a{font-family:'Figtree',sans-serif;font-size:14px;font-weight:600;color:#1a1a1a;background:none;border:none;cursor:pointer;padding:4px 0;position:relative;transition:color .2s;text-decoration:none}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--primary);transition:width .25s}
+.nav-links a:hover{color:var(--primary)}
+.nav-links a:hover::after{width:100%}
 .btn-reg-wrap{position:relative;display:inline-flex;align-items:center;justify-content:center}
 .btn-reg-pulse{position:absolute;inset:-4px;border-radius:50px;background:var(--primary);animation:pulse-ring 1.8s ease-in-out infinite;pointer-events:none}
 .btn-reg{position:relative;background:var(--primary);color:#fff;border-radius:50px;border:none;padding:10px 22px;font-family:'Figtree',sans-serif;font-size:14px;font-weight:700;cursor:pointer;z-index:1;transition:background .2s,transform .15s;white-space:nowrap}
@@ -75,9 +75,9 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.13)}
 .hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:4px solid rgba(232,93,38,.3);z-index:199;box-shadow:0 8px 32px rgba(0,0,0,.12);padding:18px 20px;flex-direction:column;gap:0}
 .mobile-menu.open{display:flex;animation:slideDown .3s ease}
-.mobile-menu button{font-family:'Figtree',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;background:none;border:none;cursor:pointer;padding:14px 4px;text-align:left;border-bottom:1px solid #f3f4f6;transition:color .2s}
-.mobile-menu button:hover{color:var(--primary)}
-.mobile-menu button:last-of-type{border-bottom:none}
+.mobile-menu a{font-family:'Figtree',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;background:none;border:none;cursor:pointer;padding:14px 4px;text-align:left;border-bottom:1px solid #f3f4f6;transition:color .2s;text-decoration:none;display:block}
+.mobile-menu a:hover{color:var(--primary)}
+.mobile-menu a:last-of-type{border-bottom:none}
 .mobile-menu .btn-reg{margin-top:12px;width:100%;padding:14px;font-size:16px;text-align:center}
 
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -302,29 +302,29 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   <div class="nav-inner">
     <img src="https://media.base44.com/images/public/6a02dcbe52ad46f953869a81/ee451fe8d_Untitleddesign5.png" alt="Camp Landau" class="nav-logo-img" id="navLogo">
     <div class="nav-links">
-      <button onclick="go('about')">About</button>
-      <button onclick="go('activities')">Activities</button>
-      <button onclick="go('gallery')">Gallery</button>
-      <button onclick="go('videos')">Videos</button>
-      <button onclick="go('music')">Music</button>
-      <button onclick="go('contact')">Contact</button>
-      <div class="btn-reg-wrap">
-        <div class="btn-reg-pulse"></div>
-        <button class="btn-reg" onclick="go('contact')">Register Now!</button>
-      </div>
-    </div>
+  <a href="#about">About</a>
+  <a href="#activities">Activities</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#videos">Videos</a>
+  <a href="#music">Music</a>
+  <a href="#contact">Contact</a>
+  <div class="btn-reg-wrap">
+    <div class="btn-reg-pulse"></div>
+    <a href="#contact" class="btn-reg">Register Now!</a>
+  </div>
+</div>
     <button class="hamburger" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobMenu">
-  <button onclick="goM('about')">About</button>
-  <button onclick="goM('activities')">Activities</button>
-  <button onclick="goM('gallery')">Gallery</button>
-  <button onclick="goM('videos')">Videos</button>
-  <button onclick="goM('music')">Music</button>
-  <button onclick="goM('contact')">Contact</button>
-  <button onclick="goM('contact')" class="btn-reg">Register Now!</button>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#activities" onclick="closeMenu()">Activities</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#videos" onclick="closeMenu()">Videos</a>
+  <a href="#music" onclick="closeMenu()">Music</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#contact" onclick="closeMenu()" class="btn-reg">Register Now!</a>
 </div>
 
 <section class="hero" id="hero">
