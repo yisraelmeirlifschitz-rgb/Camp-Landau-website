@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://camplandau.netlify.app/sitemap.xml
+Sitemap: https://camp-landau.com/sitemap.xml
