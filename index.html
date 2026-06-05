@@ -409,7 +409,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <p class="sec-sub reveal">Relive the GISHMAK. Epic activities, Ruach filled moments, and the best summer you'll ever see! Click to watch.</p>
     <div class="vid-grid reveal" id="vidGrid"></div>
     <div style="text-align:center" class="reveal">
-      <a href="https://www.youtube.com/@camplandau9410" target="_blank" class="yt-btn">▶ Watch All Videos on YouTube</a>
+      <a href="https://www.youtube.com/@camplandau9410" target="_blank" rel="noopener noreferrer" class="yt-btn">▶ Watch All Videos on YouTube</a>
     </div>
   </div>
 </section>
@@ -440,10 +440,10 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
           </div>
           <h4>Camp Landau on 24six</h4>
           <p>Stream all our original camp songs on 24six, the Jewish music platform.</p>
-          <a href="https://24six.app/preview/music/artist/2650/camp-landau" target="_blank" class="btn-six" style="width:100%">↗ Listen on 24six</a>        </div>
+          <a href="https://24six.app/preview/music/artist/2650/camp-landau" target="_blank" rel="noopener noreferrer" class="btn-six" style="width:100%">↗ Listen on 24six</a>        </div>
       </div>
     </div>
-<div class="music-note reveal">🎵 Stream on <a href="https://24six.app/preview/music/artist/2650/camp-landau" target="_blank" style="color:var(--six)">24six</a> or <a href="https://open.spotify.com/artist/5GvoGwRrTwcms4Vo4EOi9o" target="_blank" style="color:#1DB954">Spotify</a>. The soundtrack to your GISHMAK summer!</div>
+<div class="music-note reveal">🎵 Stream on <a href="https://24six.app/preview/music/artist/2650/camp-landau" target="_blank" rel="noopener noreferrer" style="color:var(--six)">24six</a> or <a href="https://open.spotify.com/artist/5GvoGwRrTwcms4Vo4EOi9o" target="_blank" rel="noopener noreferrer" style="color:#1DB954">Spotify</a>. The soundtrack to your GISHMAK summer!</div>
 
 <div class="music-note reveal" style="margin-top:14px" id="audioDownloads">
   <div style="font-family:'Figtree',sans-serif;font-weight:700;font-size:15px;color:#1a1a1a;margin-bottom:12px">⬇️ Download Camp Songs</div>
@@ -468,7 +468,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
           <span class="pbadge">3+ kids = ₪50 OFF each</span>
         </div>
         <div class="preg-row">
-          <a href="https://nedar.im/F1915" target="_blank" class="preg-btn preg-gold">Register Online</a>
+          <a href="https://nedar.im/F1915" target="_blank" rel="noopener noreferrer" class="preg-btn preg-gold">Register Online</a>
           <a href="tel:029996341" class="preg-btn preg-outline">📞 Call to Register</a>
         </div>
         <p class="deadline">⏰ Deadline: <strong>Rosh Chodesh Tamuz</strong></p>
@@ -484,7 +484,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
               <a href="tel:0527600897" class="phone-btn">052-760-0897</a>
             </div>
             <div>
-              <a href="https://maps.google.com/?q=Nachal+Maor+12/2+Beit+Shemesh" target="_blank" class="addr-link">🏠 Nachal Maor 12/2</a>
+              <a href="https://maps.google.com/?q=Nachal+Maor+12/2+Beit+Shemesh" target="_blank" rel="noopener noreferrer" class="addr-link">🏠 Nachal Maor 12/2</a>
             </div>
           </div>
           <div class="vdiv"></div>
@@ -533,7 +533,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     </div>
     <div class="ft-div">
   <p>© 2026 Camp Landau. All rights reserved.</p>
-  <a href="https://simplysite.me" target="_blank" style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;margin-top:4px;text-decoration:none;opacity:.75;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.75'">
+  <a href="https://simplysite.me" target="_blank" rel="noopener noreferrer" style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;margin-top:4px;text-decoration:none;opacity:.75;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.75'">
 <span style="font-size:12px;color:rgba(255,255,255,.5);font-family:'Figtree',sans-serif;letter-spacing:.05em;line-height:1;display:block">Built by</span>    <img src="https://raw.githubusercontent.com/yisraelmeirlifschitz-rgb/Camp-Landau-website/main/SimplySite.png" alt="SimplySite" style="height:148px;filter:brightness(0) invert(1)">
   </a>
 </div>
@@ -606,7 +606,7 @@ const grid=document.getElementById('gGrid');
 const GH_API='https://api.github.com/repos/yisraelmeirlifschitz-rgb/Camp-Landau-website/contents/gallery/gallery';
 
 fetch(GH_API)
-  .then(r=>r.json())
+  .then(r=>{if(!r.ok)throw new Error('API error');return r.json();})
   .then(files=>{
     const imgs=files.filter(f=>f.name.match(/\.(jpg|jpeg|png|gif|webp)$/i));
     let shown=0;
@@ -628,6 +628,7 @@ fetch(GH_API)
       obs.observe(div);
     }
 
+    if(!imgs.length){grid.innerHTML='<p style="text-align:center;color:#999;padding:20px">No photos found.</p>';return;}
     imgs.slice(0,LIMIT).forEach((file,i)=>addImg(file,i));
     shown=LIMIT;
 
@@ -644,7 +645,8 @@ fetch(GH_API)
       });
       grid.insertAdjacentElement('afterend',btn);
     }
-  });
+  })
+  .catch(()=>{grid.innerHTML='<p style="text-align:center;color:#999;padding:20px">Could not load photos. Try refreshing.</p>';});
 
 function openLb(src){
   lbIdx=lbUrls.indexOf(src);
@@ -676,7 +678,13 @@ fetch('https://api.github.com/repos/yisraelmeirlifschitz-rgb/Camp-Landau-website
       a.style.cssText='display:flex;align-items:center;gap:10px;padding:10px 14px;background:#f3f4f6;border-radius:10px;margin-bottom:8px;text-decoration:none;color:#1a1a1a;font-family:Figtree,sans-serif;font-size:14px;font-weight:600;transition:background .2s';
       a.onmouseover=()=>a.style.background='#e5e7eb';
       a.onmouseout=()=>a.style.background='#f3f4f6';
-      a.innerHTML=`<span style="font-size:20px">🎵</span> ${song.name.replace(/\.[^.]+$/,'')}`;
+      const noteSpan=document.createElement('span');
+      noteSpan.style.fontSize='20px';
+      noteSpan.textContent='🎵';
+      const nameSpan=document.createElement('span');
+      nameSpan.textContent=' '+song.name.replace(/\.[^.]+$/,'');
+      a.appendChild(noteSpan);
+      a.appendChild(nameSpan);
       list.appendChild(a);
     });
   })
