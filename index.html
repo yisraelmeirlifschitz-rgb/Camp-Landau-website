@@ -269,6 +269,21 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   .hero h1{font-size:23px}
   .hbtn{padding:13px 28px;font-size:15px}
 }
+
+.countdown-wrap{margin:20px auto 28px;text-align:center;animation:fadeUp .7s .65s both}
+.countdown-label{font-family:'Figtree',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:rgba(255,255,255,.9);background:rgba(232,93,38,.4);display:inline-block;padding:5px 18px;border-radius:50px;margin-bottom:14px;border:1px solid rgba(232,93,38,.6);backdrop-filter:blur(8px)}
+.countdown-grid{display:flex;align-items:flex-start;justify-content:center;gap:6px}
+.cdown-unit{display:flex;flex-direction:column;align-items:center;gap:5px}
+.cdown-box{background:rgba(255,255,255,.11);backdrop-filter:blur(14px);border:1.5px solid rgba(255,255,255,.22);border-radius:14px;width:74px;height:74px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.18);position:relative}
+.cdown-box::after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.18);pointer-events:none}
+.cdown-num{font-family:'Figtree',sans-serif;font-size:34px;font-weight:900;color:#fff;line-height:1;display:block;will-change:transform}
+.cdown-num.cd-flip{animation:cdFlip .38s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes cdFlip{0%{transform:translateY(0) scaleY(1);opacity:1}25%{transform:translateY(-65%) scaleY(.2);opacity:0}26%{transform:translateY(65%) scaleY(.2);opacity:0}100%{transform:translateY(0) scaleY(1);opacity:1}}
+.cdown-lbl{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.1em;text-transform:uppercase}
+.cdown-sep{font-family:'Figtree',sans-serif;font-size:30px;font-weight:900;color:rgba(255,255,255,.45);margin-top:14px;animation:sepBlink 1s ease-in-out infinite}
+@keyframes sepBlink{0%,100%{opacity:.4}50%{opacity:.95}}
+.countdown-sub{font-family:'Figtree',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.72);margin-top:13px;letter-spacing:.02em}
+@media(max-width:480px){.cdown-box{width:58px;height:58px;border-radius:10px}.cdown-num{font-size:26px}.cdown-sep{font-size:22px}.countdown-wrap{margin:14px auto 20px}}
 </style>
 <script type="application/ld+json">
 {
@@ -355,7 +370,31 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   <div class="rainbow-bar"></div>
   <div class="hero-content">
     <img src="https://media.base44.com/images/public/6a02dcbe52ad46f953869a81/ee451fe8d_Untitleddesign5.png" alt="Camp Landau Logo" class="hero-logo">
-    <h1>The Most GISHMAK Summer of Your Life!</h1>
+    <div class="countdown-wrap">
+      <div class="countdown-label">⏳ Camp starts in</div>
+      <div class="countdown-grid">
+        <div class="cdown-unit">
+          <div class="cdown-box"><span class="cdown-num" id="cd-days">00</span></div>
+          <div class="cdown-lbl">Days</div>
+        </div>
+        <div class="cdown-sep">:</div>
+        <div class="cdown-unit">
+          <div class="cdown-box"><span class="cdown-num" id="cd-hours">00</span></div>
+          <div class="cdown-lbl">Hours</div>
+        </div>
+        <div class="cdown-sep">:</div>
+        <div class="cdown-unit">
+          <div class="cdown-box"><span class="cdown-num" id="cd-mins">00</span></div>
+          <div class="cdown-lbl">Mins</div>
+        </div>
+        <div class="cdown-sep">:</div>
+        <div class="cdown-unit">
+          <div class="cdown-box"><span class="cdown-num" id="cd-secs">00</span></div>
+          <div class="cdown-lbl">Secs</div>
+        </div>
+      </div>
+    </div>
+    <h1>To the Most GISHMAK Summer of Your Life!</h1>
     <p>English speaking boys, grades 1 to 8. Beit Shemesh's #1 summer camp. Summer 2026.</p>
     <div class="hero-btns">
       <div class="hero-reg-wrap">
@@ -683,6 +722,28 @@ function lbNav(dir){
   lbIdx=(lbIdx+dir+lbUrls.length)%lbUrls.length;
   document.getElementById('lbImg').src=lbUrls[lbIdx];
 }
+
+// ── COUNTDOWN ──
+(function(){
+  var target=new Date('2026-07-26T09:00:00');
+  function pad(n){return String(n).padStart(2,'0')}
+  function flip(el,val){
+    if(el.textContent===val)return;
+    el.classList.remove('cd-flip');
+    void el.offsetWidth;
+    el.textContent=val;
+    el.classList.add('cd-flip');
+  }
+  function tick(){
+    var diff=Math.max(0,target-new Date());
+    flip(document.getElementById('cd-days'),pad(Math.floor(diff/86400000)));
+    flip(document.getElementById('cd-hours'),pad(Math.floor((diff%86400000)/3600000)));
+    flip(document.getElementById('cd-mins'),pad(Math.floor((diff%3600000)/60000)));
+    flip(document.getElementById('cd-secs'),pad(Math.floor((diff%60000)/1000)));
+  }
+  tick();
+  setInterval(tick,1000);
+})();
 
 // ── AUDIO DOWNLOADS ──
 fetch('https://api.github.com/repos/yisraelmeirlifschitz-rgb/Camp-Landau-website/contents/audio')
