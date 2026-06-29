@@ -89,15 +89,15 @@ nav.scrolled~.mobile-menu{top:68px}
 
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,transparent 40%,rgba(232,93,38,.82) 100%);z-index:1}
+.hero-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.44);z-index:1}
 .hero-strips{display:flex;flex-direction:column;width:100%;height:100%;gap:3px}
 .strip{flex:1;overflow:hidden;background:#111;-webkit-mask-image:linear-gradient(to right,transparent,black 3%,black 97%,transparent);mask-image:linear-gradient(to right,transparent,black 3%,black 97%,transparent)}
 .strip-inner{display:flex;height:100%;width:max-content;gap:3px}
-.strip-l .strip-inner{animation:stripLeft 90s linear infinite}
-.strip-r .strip-inner{animation:stripRight 75s linear infinite}
-.strip:nth-child(3) .strip-inner{animation-duration:110s}
-.strip:nth-child(4) .strip-inner{animation-duration:80s}
-.strip:nth-child(5) .strip-inner{animation-duration:100s}
+.strip-l .strip-inner{animation:stripLeft 180s linear infinite}
+.strip-r .strip-inner{animation:stripRight 155s linear infinite}
+.strip:nth-child(3) .strip-inner{animation-duration:210s}
+.strip:nth-child(4) .strip-inner{animation-duration:165s}
+.strip:nth-child(5) .strip-inner{animation-duration:195s}
 .strip-inner img{height:100%;width:260px;object-fit:cover;flex-shrink:0;border-radius:4px}
 @keyframes stripLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes stripRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
@@ -288,18 +288,17 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
 .countdown-wrap{margin:20px auto 28px;text-align:center;animation:fadeUp .7s .65s both}
 .countdown-label{font-family:'Figtree',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:rgba(255,255,255,.9);background:rgba(232,93,38,.4);display:inline-block;padding:5px 18px;border-radius:50px;margin-bottom:14px;border:1px solid rgba(232,93,38,.6);backdrop-filter:blur(8px)}
-.countdown-grid{display:flex;align-items:flex-start;justify-content:center;gap:6px}
-.cdown-unit{display:flex;flex-direction:column;align-items:center;gap:5px}
-.cdown-box{background:rgba(255,255,255,.11);backdrop-filter:blur(14px);border:1.5px solid rgba(255,255,255,.22);border-radius:14px;width:74px;height:74px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.18);position:relative}
-.cdown-box::after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.18);pointer-events:none}
-.cdown-num{font-family:'Figtree',sans-serif;font-size:34px;font-weight:900;color:#fff;line-height:1;display:block;will-change:transform}
+.countdown-grid{display:flex;align-items:center;justify-content:center;gap:10px}
+.cdown-unit{display:flex;flex-direction:column;align-items:center}
+.cdown-box{background:rgba(0,0,0,.52);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.18);border-radius:14px;width:80px;height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.cdown-num{font-family:'Figtree',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;display:block;will-change:transform}
 .cdown-num.cd-flip{animation:cdFlip .38s cubic-bezier(.36,.07,.19,.97) both}
 @keyframes cdFlip{0%{transform:translateY(0) scaleY(1);opacity:1}25%{transform:translateY(-65%) scaleY(.2);opacity:0}26%{transform:translateY(65%) scaleY(.2);opacity:0}100%{transform:translateY(0) scaleY(1);opacity:1}}
-.cdown-lbl{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.5)}
-.cdown-sep{font-family:'Figtree',sans-serif;font-size:30px;font-weight:900;color:rgba(255,255,255,.45);margin-top:14px;animation:sepBlink 1s ease-in-out infinite}
-@keyframes sepBlink{0%,100%{opacity:.4}50%{opacity:.95}}
+.cdown-lbl{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase}
+.cdown-sep{font-family:'Figtree',sans-serif;font-size:26px;font-weight:700;color:rgba(255,255,255,.35);animation:sepBlink 1s ease-in-out infinite;margin-bottom:20px}
+@keyframes sepBlink{0%,100%{opacity:.25}50%{opacity:.7}}
 .countdown-sub{font-family:'Figtree',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.72);margin-top:13px;letter-spacing:.02em}
-@media(max-width:480px){.cdown-box{width:58px;height:58px;border-radius:10px}.cdown-num{font-size:26px}.cdown-sep{font-size:22px}.countdown-wrap{margin:14px auto 20px}}
+@media(max-width:480px){.cdown-box{width:64px;height:74px;border-radius:10px}.cdown-num{font-size:28px}.cdown-lbl{font-size:9px}.cdown-sep{font-size:20px;margin-bottom:16px}.countdown-wrap{margin:14px auto 20px}}
 </style>
 <script type="application/ld+json">
 {
@@ -506,23 +505,31 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <div class="countdown-wrap" id="cdWrap">
       <div class="countdown-grid">
         <div class="cdown-unit">
-          <div class="cdown-box"><span class="cdown-num" id="cd-days">00</span></div>
-          <div class="cdown-lbl">Days</div>
+          <div class="cdown-box">
+            <span class="cdown-num" id="cd-days">00</span>
+            <span class="cdown-lbl">Days</span>
+          </div>
         </div>
         <div class="cdown-sep">:</div>
         <div class="cdown-unit">
-          <div class="cdown-box"><span class="cdown-num" id="cd-hours">00</span></div>
-          <div class="cdown-lbl">Hours</div>
+          <div class="cdown-box">
+            <span class="cdown-num" id="cd-hours">00</span>
+            <span class="cdown-lbl">Hours</span>
+          </div>
         </div>
         <div class="cdown-sep">:</div>
         <div class="cdown-unit">
-          <div class="cdown-box"><span class="cdown-num" id="cd-mins">00</span></div>
-          <div class="cdown-lbl">Mins</div>
+          <div class="cdown-box">
+            <span class="cdown-num" id="cd-mins">00</span>
+            <span class="cdown-lbl">Mins</span>
+          </div>
         </div>
         <div class="cdown-sep">:</div>
         <div class="cdown-unit">
-          <div class="cdown-box"><span class="cdown-num" id="cd-secs">00</span></div>
-          <div class="cdown-lbl">Secs</div>
+          <div class="cdown-box">
+            <span class="cdown-num" id="cd-secs">00</span>
+            <span class="cdown-lbl">Secs</span>
+          </div>
         </div>
       </div>
     </div>
