@@ -801,7 +801,7 @@ const GPHOTO_URLS=[
     btn.style.cssText='display:block;margin:28px auto 0;padding:14px 36px;background:var(--primary);color:#fff;border:none;border-radius:50px;font-family:Figtree,sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s,transform .2s;box-shadow:0 6px 20px rgba(232,93,38,.35)';
     btn.onmouseover=()=>{btn.style.background='#c44d1a';btn.style.transform='translateY(-2px)'};
     btn.onmouseout=()=>{btn.style.background='var(--primary)';btn.style.transform='none'};
-    btn.addEventListener('click',()=>{window.open('gallery.html','_blank')});
+    btn.addEventListener('click',()=>{location.href='gallery.html'});
     grid.insertAdjacentElement('afterend',btn);
   }
 })();
