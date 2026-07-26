@@ -327,7 +327,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
             <span class="song-time" id="songTime">0:00</span>
           </div>
         </div>
-        <a class="song-dl" href="/audio/see%20the%20good.mp3" download="See the Good - Camp Landau.mp3" title="Download See the Good" aria-label="Download See the Good">
+        <a class="song-dl" href="/audio/See%20The%20Good.mp3" download="See the Good - Camp Landau.mp3" title="Download See the Good" aria-label="Download See the Good">
           <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>
         </a>
       </div>
@@ -385,7 +385,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   const btn=document.getElementById('songBtn');
   const seek=document.getElementById('songSeek');
   const time=document.getElementById('songTime');
-  const audio=new Audio('/audio/see%20the%20good.mp3');
+  const audio=new Audio('/audio/See%20The%20Good.mp3');
   audio.preload='none';
 
   const fmt=s=>isFinite(s)?Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'):'0:00';
