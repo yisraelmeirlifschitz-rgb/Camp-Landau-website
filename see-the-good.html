@@ -24,6 +24,7 @@
 <meta name="twitter:image:alt" content="Camp Landau, See the Good">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -88,7 +89,16 @@ section{padding:80px 24px}
 .ep-badge{font-family:'Figtree',sans-serif;background:var(--navy);color:var(--gold);font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;border-radius:50px}
 .ep-when{font-size:14px;color:#888;font-weight:500}
 .vshell{max-width:880px;margin:0 auto;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 14px 44px rgba(0,0,0,.22);border:3px solid rgba(232,93,38,.18);position:relative;aspect-ratio:16/9}
-.vshell video{width:100%;height:100%;display:block;object-fit:contain}
+.vshell .plyr{height:100%;width:100%;--plyr-color-main:var(--primary);--plyr-video-background:#000;--plyr-range-thumb-background:#fff;--plyr-video-control-color:#fff}
+.vshell .plyr--video,.vshell .plyr__video-wrapper{height:100%;background:#000}
+/* YouTube pins its title bar and logo to the iframe edges, and re-shows them
+   whenever the player pauses. We cannot restyle inside a cross-origin frame,
+   so the iframe is made taller than the shell and pulled up: YouTube letterboxes
+   the 16:9 video to the middle, which lands exactly on the shell, and its chrome
+   ends up in the cropped strips. pointer-events blocks any click reaching YouTube. */
+.vshell .plyr__video-embed iframe,.vshell .plyr iframe{position:absolute;top:-30%;left:0;width:100%;height:160%;border:0;pointer-events:none}
+.vshell .plyr__video-embed{padding-bottom:0;height:100%}
+.vshell .plyr__poster{background-size:cover}
 .vcover{position:absolute;inset:0;cursor:pointer;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
 .vcover::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(1,26,80,.32) 0%,rgba(1,26,80,.5) 100%)}
 .vcover.gone{display:none}
@@ -205,13 +215,8 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     </div>
 
     <div class="vshell reveal">
-      <video id="vid" preload="none"
-             poster="https://lh3.googleusercontent.com/pw/AP1GczN_AVWoEkBq2gR9BQ5yETDOUCnPM67p0sOsSPx_AcGPpckIwQPWCNYuV5qmAr0t6AicBZ_ZJkXXQStGHZXrRG_fogJP5UMsbTWw9NSWJERhxsM7II0=w1280-h720-no">
-        <source src="https://lh3.googleusercontent.com/pw/AP1GczN_AVWoEkBq2gR9BQ5yETDOUCnPM67p0sOsSPx_AcGPpckIwQPWCNYuV5qmAr0t6AicBZ_ZJkXXQStGHZXrRG_fogJP5UMsbTWw9NSWJERhxsM7II0=m22" type="video/mp4">
-        Your browser does not support video playback.
-      </video>
-      <div class="vcover" id="vcover"
-           style="background-image:url('https://lh3.googleusercontent.com/pw/AP1GczN_AVWoEkBq2gR9BQ5yETDOUCnPM67p0sOsSPx_AcGPpckIwQPWCNYuV5qmAr0t6AicBZ_ZJkXXQStGHZXrRG_fogJP5UMsbTWw9NSWJERhxsM7II0=w1280-h720-no')">
+      <div id="stgPlayer" data-plyr-provider="youtube" data-plyr-embed-id="q-MkUmqLmRY"></div>
+      <div class="vcover" id="vcover" style="background-image:url('stg-01-poster.jpg')">
         <div class="play-btn"></div>
       </div>
     </div>
@@ -244,6 +249,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.min.js"></script>
 <script>
 // Nav
 const hamb=document.getElementById('hamb');
@@ -269,12 +275,28 @@ const obs=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 // Video
-const vid=document.getElementById('vid');
 const vcover=document.getElementById('vcover');
+const player=new Plyr('#stgPlayer',{
+  controls:['play','progress','current-time','mute','volume','fullscreen'],
+  settings:[],
+  captions:{active:false,update:false},
+  ratio:'16:9',
+  autoplay:false,
+  hideControls:true,
+  youtube:{noCookie:true,rel:0,modestbranding:1,iv_load_policy:3,showinfo:0,playsinline:1,cc_load_policy:0,disablekb:1}
+});
+window.player=player;
+
+// Our own cover starts playback, so YouTube chrome is never visible up front
 vcover.addEventListener('click',()=>{
   vcover.classList.add('gone');
-  vid.controls=true;
-  vid.play();
+  player.play();
+});
+
+// Back to the poster on finish, so YouTube's end screen never appears
+player.on('ended',()=>{
+  player.stop();
+  vcover.classList.remove('gone');
 });
 </script>
 </body>
