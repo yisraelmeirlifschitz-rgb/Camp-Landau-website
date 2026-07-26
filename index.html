@@ -203,6 +203,26 @@ section{padding:80px 24px}
 .btn-six:hover{background:#ffba3a;transform:translateY(-1px);box-shadow:0 6px 22px rgba(245,166,35,.45)}
 .music-note{margin-top:20px;background:#f9fafb;border-radius:12px;padding:14px 18px;border:1px solid #e5e7eb;font-size:13px;color:#666;line-height:1.6}
 .music-note a{font-weight:600;text-decoration:none}
+.song{display:flex;align-items:center;gap:12px;padding:11px 13px;background:#f3f4f6;border:1px solid transparent;border-radius:10px;margin-bottom:8px;transition:background .2s,border-color .2s,box-shadow .2s}
+.song:hover{background:#eceef1}
+.song.playing{background:#fff;border-color:rgba(232,93,38,.35);box-shadow:0 3px 14px rgba(232,93,38,.12)}
+.song-btn{flex-shrink:0;width:36px;height:36px;border-radius:50%;border:none;background:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:background .2s,transform .15s}
+.song-btn:hover{background:var(--pd);transform:scale(1.07)}
+.song-btn svg{width:13px;height:13px;fill:#fff;pointer-events:none}
+.song-btn .ico-pause{display:none}
+.song.playing .song-btn .ico-play{display:none}
+.song.playing .song-btn .ico-pause{display:block}
+.song-main{flex:1;min-width:0}
+.song-name{font-family:'Figtree',sans-serif;font-size:14px;font-weight:600;color:#1a1a1a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.song-bar{display:none;align-items:center;gap:10px;margin-top:8px}
+.song.playing .song-bar{display:flex}
+.song-seek{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:99px;background:#dfe2e6;cursor:pointer;outline:none}
+.song-seek::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--primary);cursor:pointer}
+.song-seek::-moz-range-thumb{width:12px;height:12px;border:0;border-radius:50%;background:var(--primary);cursor:pointer}
+.song-time{font-family:'Figtree',sans-serif;font-size:11px;font-weight:600;color:#888;font-variant-numeric:tabular-nums;flex-shrink:0}
+.song-dl{flex-shrink:0;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#a1a1a1;transition:background .2s,color .2s}
+.song-dl:hover{background:#fff;color:var(--primary)}
+.song-dl svg{width:15px;height:15px;fill:currentColor}
 
 .contact-bg{background:#f9fafb}
 .ccards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
@@ -514,7 +534,8 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 <div class="music-note reveal">🎵 Stream on <a href="https://24six.app/preview/music/artist/2650/camp-landau" target="_blank" rel="noopener noreferrer" style="color:var(--six)">24six</a> or <a href="https://open.spotify.com/artist/5GvoGwRrTwcms4Vo4EOi9o" target="_blank" rel="noopener noreferrer" style="color:#1DB954">Spotify</a>. The soundtrack to your GISHMAK summer!</div>
 
 <div class="music-note reveal" style="margin-top:14px" id="audioDownloads">
-  <div style="font-family:'Figtree',sans-serif;font-weight:700;font-size:15px;color:#1a1a1a;margin-bottom:12px">⬇️ Download Camp Songs</div>
+  <div style="font-family:'Figtree',sans-serif;font-weight:700;font-size:15px;color:#1a1a1a;margin-bottom:12px">Camp Songs</div>
+  <div style="font-size:12.5px;color:#888;margin-bottom:12px;margin-top:-6px">Play them right here, or download to keep.</div>
   <div id="audioList">Loading songs...</div>
 </div>  </div>
 </section>
@@ -855,29 +876,123 @@ function lbNav(dir){
   },1000);
 })();
 
-// ── AUDIO DOWNLOADS ──
-fetch('https://api.github.com/repos/yisraelmeirlifschitz-rgb/Camp-Landau-website/contents/audio')
-  .then(r=>r.json())
+// ── CAMP SONGS, play inline or download ──
+const SONG_API='https://api.github.com/repos/yisraelmeirlifschitz-rgb/Camp-Landau-website/contents/audio';
+const ICON_PLAY='<svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+const ICON_PAUSE='<svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>';
+const ICON_DL='<svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>';
+
+// One element for every song, so starting one always stops the other
+const audio=new Audio();
+audio.preload='none';
+let currentRow=null;
+
+function fmt(s){
+  if(!isFinite(s))return '0:00';
+  const m=Math.floor(s/60), r=Math.floor(s%60);
+  return m+':'+String(r).padStart(2,'0');
+}
+function paintSeek(el){
+  const pct=el.max>0 ? (el.value/el.max)*100 : 0;
+  el.style.background='linear-gradient(to right,var(--primary) '+pct+'%,#dfe2e6 '+pct+'%)';
+}
+function clearRow(){
+  if(!currentRow)return;
+  currentRow.classList.remove('playing');
+  currentRow=null;
+}
+
+fetch(SONG_API)
+  .then(r=>{if(!r.ok)throw new Error('api');return r.json();})
   .then(files=>{
     const songs=files.filter(f=>f.name.match(/\.(mp3|wav|m4a|ogg|flac)$/i));
     const list=document.getElementById('audioList');
     if(!songs.length){list.textContent='No songs uploaded yet.';return;}
     list.innerHTML='';
+
     songs.forEach(song=>{
-      const a=document.createElement('a');
-      a.href=song.download_url;
-      a.download=song.name;
-      a.style.cssText='display:flex;align-items:center;gap:10px;padding:10px 14px;background:#f3f4f6;border-radius:10px;margin-bottom:8px;text-decoration:none;color:#1a1a1a;font-family:Figtree,sans-serif;font-size:14px;font-weight:600;transition:background .2s';
-      a.onmouseover=()=>a.style.background='#e5e7eb';
-      a.onmouseout=()=>a.style.background='#f3f4f6';
-      const noteSpan=document.createElement('span');
-      noteSpan.style.fontSize='20px';
-      noteSpan.textContent='🎵';
-      const nameSpan=document.createElement('span');
-      nameSpan.textContent=' '+song.name.replace(/\.[^.]+$/,'');
-      a.appendChild(noteSpan);
-      a.appendChild(nameSpan);
-      list.appendChild(a);
+      const name=song.name.replace(/\.[^.]+$/,'');
+      const row=document.createElement('div');
+      row.className='song';
+
+      const btn=document.createElement('button');
+      btn.className='song-btn';
+      btn.type='button';
+      btn.setAttribute('aria-label','Play '+name);
+      btn.innerHTML=ICON_PLAY+ICON_PAUSE;
+
+      const main=document.createElement('div');
+      main.className='song-main';
+      const nm=document.createElement('div');
+      nm.className='song-name';
+      nm.textContent=name;
+      const bar=document.createElement('div');
+      bar.className='song-bar';
+      const seek=document.createElement('input');
+      seek.type='range';seek.className='song-seek';
+      seek.min=0;seek.max=0;seek.value=0;seek.step='any';
+      seek.setAttribute('aria-label','Seek');
+      const time=document.createElement('span');
+      time.className='song-time';
+      time.textContent='0:00';
+      bar.appendChild(seek);bar.appendChild(time);
+      main.appendChild(nm);main.appendChild(bar);
+
+      const dl=document.createElement('a');
+      dl.className='song-dl';
+      dl.href=song.download_url;
+      dl.download=song.name;
+      dl.title='Download '+name;
+      dl.setAttribute('aria-label','Download '+name);
+      dl.innerHTML=ICON_DL;
+
+      row.appendChild(btn);row.appendChild(main);row.appendChild(dl);
+      list.appendChild(row);
+
+      row._src=song.download_url;
+      row._seek=seek;
+      row._time=time;
+
+      btn.addEventListener('click',()=>{
+        if(currentRow===row){
+          if(audio.paused){audio.play();}else{audio.pause();}
+          return;
+        }
+        clearRow();
+        currentRow=row;
+        row.classList.add('playing');
+        audio.src=row._src;
+        audio.play();
+      });
+
+      seek.addEventListener('input',()=>{
+        if(currentRow===row&&isFinite(audio.duration)){
+          audio.currentTime=seek.value;
+          paintSeek(seek);
+        }
+      });
+    });
+
+    audio.addEventListener('loadedmetadata',()=>{
+      if(!currentRow)return;
+      currentRow._seek.max=audio.duration||0;
+      paintSeek(currentRow._seek);
+    });
+    audio.addEventListener('timeupdate',()=>{
+      if(!currentRow)return;
+      currentRow._seek.value=audio.currentTime;
+      paintSeek(currentRow._seek);
+      currentRow._time.textContent=fmt(audio.currentTime)+' / '+fmt(audio.duration);
+    });
+    audio.addEventListener('ended',()=>{
+      if(!currentRow)return;
+      currentRow._seek.value=0;
+      paintSeek(currentRow._seek);
+      clearRow();
+    });
+    audio.addEventListener('error',()=>{
+      if(!currentRow)return;
+      currentRow._time.textContent='Could not play';
     });
   })
   .catch(()=>document.getElementById('audioList').textContent='Could not load songs.');
