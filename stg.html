@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STG, See the Good | Camp Landau</title>
+<meta name="description" content="See the Good at Camp Landau. Watch, think, and learn to judge everyone favorably.">
+<link rel="icon" type="image/png" href="/Favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--orange:#e85d26;--ink:#171512;--paper:#faf8f5;--line:#e3ddd4;--muted:#6b6459}
+body{font-family:'Figtree',sans-serif;background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+
+/* Header */
+.topbar{border-bottom:1px solid var(--line);background:#fff}
+.topbar-in{max-width:1000px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;gap:14px}
+.topbar img{height:40px;cursor:pointer}
+.topbar .home{margin-left:auto;font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;padding:7px 0;transition:color .18s}
+.topbar .home:hover{color:var(--orange)}
+
+/* Masthead */
+.masthead{max-width:1000px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:1fr 1.35fr;gap:56px;align-items:end}
+.stg-mark{font-size:clamp(76px,13vw,132px);font-weight:900;letter-spacing:-.055em;line-height:.82;color:var(--orange)}
+.stg-expand{font-size:clamp(15px,2vw,19px);font-weight:700;letter-spacing:.01em;margin-top:14px;color:var(--ink)}
+.masthead-copy p{font-size:clamp(15px,1.9vw,17px);color:var(--muted);max-width:44ch}
+.masthead-copy p+p{margin-top:13px}
+.masthead-copy strong{color:var(--ink);font-weight:700}
+
+/* Rule */
+.rule{max-width:1000px;margin:0 auto;padding:0 24px}
+.rule div{height:1px;background:var(--line)}
+
+/* Episode block */
+.episode{max-width:1000px;margin:0 auto;padding:36px 24px 20px}
+.ep-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.ep-no{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);border:1.5px solid var(--orange);border-radius:3px;padding:4px 9px}
+.ep-date{font-size:13px;color:var(--muted);font-weight:500}
+
+/* Video */
+.player{background:#0e0d0c;border-radius:6px;overflow:hidden;aspect-ratio:16/9;position:relative}
+.player video{width:100%;height:100%;display:block;object-fit:contain}
+.player-cover{position:absolute;inset:0;cursor:pointer;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
+.player-cover::before{content:'';position:absolute;inset:0;background:rgba(14,13,12,.42)}
+.player-cover.gone{display:none}
+.play-mark{position:relative;width:76px;height:76px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;transition:transform .2s ease}
+.player-cover:hover .play-mark{transform:scale(1.07)}
+.play-mark svg{width:26px;height:26px;fill:#fff;margin-left:5px}
+.player-note{font-size:12.5px;color:var(--muted);margin-top:11px}
+
+/* Instructions */
+.howto{max-width:1000px;margin:0 auto;padding:44px 24px 0;display:grid;grid-template-columns:auto 1fr;gap:0 26px}
+.howto h2{grid-column:1/-1;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-bottom:16px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+.howto .n{font-size:15px;font-weight:800;color:var(--orange);padding-top:1px;font-variant-numeric:tabular-nums}
+.howto .t{padding-bottom:22px}
+.howto .t h3{font-size:16.5px;font-weight:800;margin-bottom:4px}
+.howto .t p{font-size:15px;color:var(--muted);max-width:56ch}
+
+/* Closing line */
+.closing{max-width:1000px;margin:0 auto;padding:16px 24px 72px}
+.closing div{border-left:3px solid var(--orange);padding:4px 0 4px 20px}
+.closing p{font-size:clamp(17px,2.3vw,21px);font-weight:700;line-height:1.4;max-width:40ch}
+.closing span{display:block;font-size:13.5px;font-weight:500;color:var(--muted);margin-top:7px}
+
+/* Archive */
+.archive{border-top:1px solid var(--line);background:#fff}
+.archive-in{max-width:1000px;margin:0 auto;padding:30px 24px}
+.archive h2{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:15px}
+.ep-list{display:flex;gap:8px;flex-wrap:wrap}
+.ep-chip{font-size:14px;font-weight:700;padding:8px 15px;border:1.5px solid var(--line);border-radius:4px;color:var(--muted);background:#fff;transition:border-color .18s,color .18s}
+.ep-chip.now{border-color:var(--orange);color:#fff;background:var(--orange)}
+.ep-note{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* Footer */
+footer{background:var(--ink);color:rgba(255,255,255,.55);padding:30px 24px}
+.foot-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.foot-in img.camp{height:34px;filter:brightness(0) invert(1);opacity:.85}
+.foot-in p{font-size:12.5px}
+.credit{margin-left:auto;display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:11.5px;color:rgba(255,255,255,.45)}
+.credit img{height:22px;background:#fff;border-radius:3px;padding:3px 6px;display:block}
+
+@media(max-width:760px){
+  .masthead{grid-template-columns:1fr;gap:24px;padding:38px 20px 30px;align-items:start}
+  .episode,.howto,.closing,.rule{padding-left:20px;padding-right:20px}
+  .howto{gap:0 18px;padding-top:34px}
+  .closing{padding-bottom:52px}
+  .play-mark{width:62px;height:62px}
+  .play-mark svg{width:22px;height:22px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <img src="https://media.base44.com/images/public/6a02dcbe52ad46f953869a81/ee451fe8d_Untitleddesign5.png" alt="Camp Landau" onclick="location.href='/'">
+    <a href="/" class="home">Back to Camp Landau</a>
+  </div>
+</div>
+
+<div class="masthead">
+  <div>
+    <div class="stg-mark">STG</div>
+    <div class="stg-expand">See the Good</div>
+  </div>
+  <div class="masthead-copy">
+    <p>Every day at camp we watch a short clip of someone doing something that looks wrong. Then we stop and ask one question: <strong>is there another way to see this?</strong></p>
+    <p>Once everyone has had a chance to think, we watch the rest of the footage. Almost always, the person was doing something good the whole time. We just could not see it yet.</p>
+  </div>
+</div>
+
+<div class="rule"><div></div></div>
+
+<div class="episode">
+  <div class="ep-head">
+    <span class="ep-no">Episode 1</span>
+    <span class="ep-date">Today's clip</span>
+  </div>
+
+  <div class="player">
+    <video id="vid" preload="none"
+           poster="https://lh3.googleusercontent.com/pw/AP1GczN_AVWoEkBq2gR9BQ5yETDOUCnPM67p0sOsSPx_AcGPpckIwQPWCNYuV5qmAr0t6AicBZ_ZJkXXQStGHZXrRG_fogJP5UMsbTWw9NSWJERhxsM7II0=w1280-h720-no">
+      <source src="https://lh3.googleusercontent.com/pw/AP1GczN_AVWoEkBq2gR9BQ5yETDOUCnPM67p0sOsSPx_AcGPpckIwQPWCNYuV5qmAr0t6AicBZ_ZJkXXQStGHZXrRG_fogJP5UMsbTWw9NSWJERhxsM7II0=dv" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+    <div class="player-cover" id="cover"
+         style="background-image:url('https://lh3.googleusercontent.com/pw/AP1GczN_AVWoEkBq2gR9BQ5yETDOUCnPM67p0sOsSPx_AcGPpckIwQPWCNYuV5qmAr0t6AicBZ_ZJkXXQStGHZXrRG_fogJP5UMsbTWw9NSWJERhxsM7II0=w1280-h720-no')">
+      <div class="play-mark"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+  </div>
+  <p class="player-note">The short clip plays first. Pause it there and think before letting the rest play.</p>
+</div>
+
+<div class="howto">
+  <h2>How we run it</h2>
+
+  <div class="n">01</div>
+  <div class="t">
+    <h3>Watch the first part</h3>
+    <p>Play the clip and stop when the short version ends. Someone appears to be doing something they should not be doing.</p>
+  </div>
+
+  <div class="n">02</div>
+  <div class="t">
+    <h3>Give it a favorable judgment</h3>
+    <p>Before anyone says a word about the person, everyone has to come up with a reason the behavior might actually be fine. The harder it is, the better the answer usually gets.</p>
+  </div>
+
+  <div class="n">03</div>
+  <div class="t">
+    <h3>Watch the rest</h3>
+    <p>Let the video keep playing. The full footage shows what was really going on, and it is almost never what it looked like.</p>
+  </div>
+</div>
+
+<div class="closing">
+  <div>
+    <p>Judging someone favorably is a skill. Like any skill, it gets stronger with practice.</p>
+    <span>That is what STG is for.</span>
+  </div>
+</div>
+
+<div class="archive">
+  <div class="archive-in">
+    <h2>Episodes</h2>
+    <div class="ep-list">
+      <span class="ep-chip now">1</span>
+    </div>
+    <p class="ep-note">A new clip goes up every day of camp.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-in">
+    <img src="https://media.base44.com/images/public/6a02dcbe52ad46f953869a81/ee451fe8d_Untitleddesign5.png" alt="Camp Landau" class="camp">
+    <p>Camp Landau, Beit Shemesh. Summer 2026.</p>
+    <a href="https://simplysite.me/he/" class="credit">
+      Site by
+      <img src="https://raw.githubusercontent.com/yisraelmeirlifschitz-rgb/Camp-Landau-website/main/SimplySite.png" alt="Simply Site, website design and landing pages">
+    </a>
+  </div>
+</footer>
+
+<script>
+const vid = document.getElementById('vid');
+const cover = document.getElementById('cover');
+
+cover.addEventListener('click', () => {
+  cover.classList.add('gone');
+  vid.controls = true;
+  vid.play();
+});
+</script>
+</body>
+</html>
