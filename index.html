@@ -203,6 +203,7 @@ section{padding:80px 24px}
 .btn-six:hover{background:#ffba3a;transform:translateY(-1px);box-shadow:0 6px 22px rgba(245,166,35,.45)}
 .music-note{margin-top:20px;background:#f9fafb;border-radius:12px;padding:14px 18px;border:1px solid #e5e7eb;font-size:13px;color:#666;line-height:1.6}
 .music-note a{font-weight:600;text-decoration:none}
+#songs{scroll-margin-top:118px}
 .song{display:flex;align-items:center;gap:12px;padding:11px 13px;background:#f3f4f6;border:1px solid transparent;border-radius:10px;margin-bottom:8px;transition:background .2s,border-color .2s,box-shadow .2s}
 .song:hover{background:#eceef1}
 .song.playing{background:#fff;border-color:rgba(232,93,38,.35);box-shadow:0 3px 14px rgba(232,93,38,.12)}
@@ -533,7 +534,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     </div>
 <div class="music-note reveal">🎵 Stream on <a href="https://24six.app/preview/music/artist/2650/camp-landau" target="_blank" rel="noopener noreferrer" style="color:var(--six)">24six</a> or <a href="https://open.spotify.com/artist/5GvoGwRrTwcms4Vo4EOi9o" target="_blank" rel="noopener noreferrer" style="color:#1DB954">Spotify</a>. The soundtrack to your GISHMAK summer!</div>
 
-<div class="music-note reveal" style="margin-top:14px" id="audioDownloads">
+<div class="music-note reveal" style="margin-top:14px" id="songs">
   <div style="font-family:'Figtree',sans-serif;font-weight:700;font-size:15px;color:#1a1a1a;margin-bottom:12px">Camp Songs</div>
   <div style="font-size:12.5px;color:#888;margin-bottom:12px;margin-top:-6px">Play them right here, or download to keep.</div>
   <div id="audioList">Loading songs...</div>
@@ -620,6 +621,27 @@ function go(id){
   window.scrollTo({top,behavior:'smooth'});
 }
 function goM(id){closeMenu();setTimeout(()=>go(id),100)}
+
+// A #songs link is the share link for the player, and it needs an instant
+// jump rather than the smooth scroll the nav uses. The section sits ~4700px
+// down, and over that distance the reveal observer firing on everything in
+// between cancels a smooth scroll partway, leaving the visitor near the top.
+// The rows also arrive from the API after parse, so the jump runs once they
+// render and again after images settle.
+function jumpToSongs(){
+  const el=document.getElementById('songs');
+  if(!el)return;
+  const top=el.getBoundingClientRect().top+window.scrollY-118;
+  window.scrollTo({top,behavior:'instant'});
+}
+if(location.hash==='#songs'){
+  window.addEventListener('load',()=>setTimeout(jumpToSongs,60));
+}
+// Following a #songs link while already on the page is a fragment navigation:
+// nothing reloads, so the load handler above never runs again.
+window.addEventListener('hashchange',()=>{
+  if(location.hash==='#songs')jumpToSongs();
+});
 function closeMenu(){
   document.getElementById('hamb').classList.remove('open');
   document.getElementById('mobMenu').classList.remove('open');
@@ -994,6 +1016,8 @@ fetch(SONG_API)
       if(!currentRow)return;
       currentRow._time.textContent='Could not play';
     });
+
+    if(location.hash==='#songs')jumpToSongs();
   })
   .catch(()=>document.getElementById('audioList').textContent='Could not load songs.');
 
