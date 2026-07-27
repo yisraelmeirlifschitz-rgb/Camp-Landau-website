@@ -26,28 +26,47 @@
 <meta name="twitter:image" content="https://camp-landau.com/stg-og.jpg">
 <meta name="twitter:image:alt" content="Camp Landau, See the Good">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "STG See the Good #1, Camp Landau",
-  "description": "Episode 1 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.",
-  "thumbnailUrl": ["https://camp-landau.com/stg-01-poster.jpg"],
-  "uploadDate": "2026-07-26",
-  "duration": "PT5M0S",
-  "embedUrl": "https://www.youtube-nocookie.com/embed/q-MkUmqLmRY",
-  "contentUrl": "https://www.youtube.com/watch?v=q-MkUmqLmRY",
-  "isFamilyFriendly": true,
-  "inLanguage": "en",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Camp Landau",
-    "url": "https://camp-landau.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://camp-landau.com/stg-og.jpg"
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "STG See the Good #2, Camp Landau",
+    "description": "Episode 2 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.",
+    "thumbnailUrl": ["https://camp-landau.com/stg-02-poster.jpg"],
+    "uploadDate": "2026-07-27",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/ZSKJekRvpDU",
+    "contentUrl": "https://www.youtube.com/watch?v=ZSKJekRvpDU",
+    "url": "https://camp-landau.com/see-the-good#2",
+    "isFamilyFriendly": true,
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Camp Landau",
+      "url": "https://camp-landau.com/",
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "STG See the Good #1, Camp Landau",
+    "description": "Episode 1 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.",
+    "thumbnailUrl": ["https://camp-landau.com/stg-01-poster.jpg"],
+    "uploadDate": "2026-07-26",
+    "duration": "PT5M0S",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/q-MkUmqLmRY",
+    "contentUrl": "https://www.youtube.com/watch?v=q-MkUmqLmRY",
+    "url": "https://camp-landau.com/see-the-good#1",
+    "isFamilyFriendly": true,
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Camp Landau",
+      "url": "https://camp-landau.com/",
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
     }
   }
-}
+]
 </script>
 <script type="application/ld+json">
 {
@@ -124,7 +143,14 @@ section{padding:80px 24px}
 .sec-sub{font-size:16px;color:#666;text-align:center;max-width:620px;margin:0 auto 52px;line-height:1.65}
 
 /* EPISODE, the video */
-.ep-tag{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px}
+.ep{scroll-margin-top:118px}
+.ep+.ep{margin-top:56px;padding-top:52px;border-top:1px solid #e5e7eb}
+.ep:target .vshell{box-shadow:0 0 0 4px rgba(232,93,38,.35),0 14px 44px rgba(0,0,0,.22)}
+.ep-tag{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.ep-link{display:inline-flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-family:'Figtree',sans-serif;font-size:12.5px;font-weight:600;color:#9a9a9a;padding:5px 9px;border-radius:50px;transition:color .2s,background .2s}
+.ep-link:hover{color:var(--primary);background:#fff}
+.ep-link svg{width:13px;height:13px;fill:currentColor}
+.ep-link.copied{color:#16a34a}
 .ep-badge{font-family:'Figtree',sans-serif;background:var(--navy);color:var(--gold);font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;border-radius:50px}
 .ep-when{font-size:14px;color:#888;font-weight:500}
 .vshell{max-width:880px;margin:0 auto;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 14px 44px rgba(0,0,0,.22);border:3px solid rgba(232,93,38,.18);position:relative;aspect-ratio:16/9}
@@ -275,30 +301,57 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
 <section class="steps-bg">
   <div class="si">
-    <span class="sec-label reveal">Today at Camp</span>
-    <h2 class="sec-title reveal">Watch the Clip</h2>
+    <span class="sec-label reveal">Every Day at Camp</span>
+    <h2 class="sec-title reveal">Watch the Clips</h2>
     <p class="sec-sub reveal">Watch the short version first. Stop the video, be Dan L'chaf Zechus together with everyone, and only then let the rest play.</p>
 
-    <div class="ep-tag reveal">
-      <span class="ep-badge">Episode 1</span>
-      <span class="ep-when">Sunday, July 26</span>
-    </div>
-
-    <div class="vshell reveal">
-      <div id="stgPlayer" data-plyr-provider="youtube" data-plyr-embed-id="q-MkUmqLmRY"></div>
-      <div class="vcover" id="vcover" style="background-image:url('stg-01-poster.jpg')">
-        <div class="play-btn"></div>
+    <article class="ep reveal" id="2">
+      <div class="ep-tag">
+        <span class="ep-badge">Episode 2</span>
+        <span class="ep-when">Monday, July 27</span>
+        <button class="ep-link" type="button" data-ep="2" title="Copy a link straight to this episode" aria-label="Copy link to episode 2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12a3.1 3.1 0 013.1-3.1h4V7H7a5 5 0 100 10h4v-1.9H7A3.1 3.1 0 013.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 010 6.2h-4V17h4a5 5 0 000-10z"/></svg><span>Copy link</span></button>
       </div>
-    </div>
-    <p class="vnote reveal">The short clip comes first, and the full story is right after it in the same video.</p>
 
-    <div class="dl-row reveal">
-      <a class="dl-btn" href="https://lh3.googleusercontent.com/pw/AP1GczN_AVWoEkBq2gR9BQ5yETDOUCnPM67p0sOsSPx_AcGPpckIwQPWCNYuV5qmAr0t6AicBZ_ZJkXXQStGHZXrRG_fogJP5UMsbTWw9NSWJERhxsM7II0=dv" target="_blank" rel="noopener" download="STG-01.mp4">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>
-        Download this clip
-      </a>
-      <p class="dl-note">Full quality, about 650 MB. Opens in a new tab. On a computer, right click the video and choose Save video as.</p>
-    </div>
+      <div class="vshell">
+        <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="ZSKJekRvpDU"></div>
+        <div class="vcover" style="background-image:url('stg-02-poster.jpg')">
+          <div class="play-btn"></div>
+        </div>
+      </div>
+      <p class="vnote">The short clip comes first, and the full story is right after it in the same video.</p>
+
+      <div class="dl-row">
+        <a class="dl-btn" href="https://drive.usercontent.google.com/download?id=1uzCOlCMki9Qu9Jkxx3VZYZ022ovxzI2o&export=download&confirm=t" target="_blank" rel="noopener" download="STG-02.mp4">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>
+          Download this clip
+        </a>
+        <p class="dl-note">Full quality, about 890 MB.</p>
+      </div>
+    </article>
+
+    <article class="ep reveal" id="1">
+      <div class="ep-tag">
+        <span class="ep-badge">Episode 1</span>
+        <span class="ep-when">Sunday, July 26</span>
+        <button class="ep-link" type="button" data-ep="1" title="Copy a link straight to this episode" aria-label="Copy link to episode 1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12a3.1 3.1 0 013.1-3.1h4V7H7a5 5 0 100 10h4v-1.9H7A3.1 3.1 0 013.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 010 6.2h-4V17h4a5 5 0 000-10z"/></svg><span>Copy link</span></button>
+      </div>
+
+      <div class="vshell">
+        <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="q-MkUmqLmRY"></div>
+        <div class="vcover" style="background-image:url('stg-01-poster.jpg')">
+          <div class="play-btn"></div>
+        </div>
+      </div>
+      <p class="vnote">The short clip comes first, and the full story is right after it in the same video.</p>
+
+      <div class="dl-row">
+        <a class="dl-btn" href="https://lh3.googleusercontent.com/pw/AP1GczN_AVWoEkBq2gR9BQ5yETDOUCnPM67p0sOsSPx_AcGPpckIwQPWCNYuV5qmAr0t6AicBZ_ZJkXXQStGHZXrRG_fogJP5UMsbTWw9NSWJERhxsM7II0=dv" target="_blank" rel="noopener" download="STG-01.mp4">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>
+          Download this clip
+        </a>
+        <p class="dl-note">Full quality, about 650 MB. Opens in a new tab. On a computer, right click the video and choose Save video as.</p>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -397,7 +450,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   btn.addEventListener('click',()=>{
     if(audio.paused){
       // A song and a video talking over each other helps nobody
-      if(typeof player!=='undefined'&&player&&!player.paused){player.pause();}
+      if(Array.isArray(window.players))window.players.forEach(p=>p.pause());
       audio.play(); row.classList.add('playing');
     }else{
       audio.pause(); row.classList.remove('playing');
@@ -411,31 +464,72 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   audio.addEventListener('ended',()=>{seek.value=0;paint();row.classList.remove('playing');});
   audio.addEventListener('error',()=>{time.textContent='Could not play';});
   seek.addEventListener('input',()=>{if(isFinite(audio.duration)){audio.currentTime=seek.value;paint();}});
+
+  // Video covers call this so a clip never starts on top of the song
+  window.stopSong=()=>{audio.pause();row.classList.remove('playing');};
 })();
 
-// Video
-const vcover=document.getElementById('vcover');
-const player=new Plyr('#stgPlayer',{
-  controls:['play','progress','current-time','mute','volume','fullscreen'],
-  settings:[],
-  captions:{active:false,update:false},
-  ratio:'16:9',
-  autoplay:false,
-  hideControls:true,
-  youtube:{noCookie:true,rel:0,modestbranding:1,iv_load_policy:3,showinfo:0,playsinline:1,cc_load_policy:0,disablekb:1}
-});
-window.player=player;
+// Video, one player per episode
+const players=[];
+document.querySelectorAll('.ep').forEach(ep=>{
+  const mount=ep.querySelector('.stg-player');
+  const cover=ep.querySelector('.vcover');
+  if(!mount||!cover)return;
 
-// Our own cover starts playback, so YouTube chrome is never visible up front
-vcover.addEventListener('click',()=>{
-  vcover.classList.add('gone');
-  player.play();
-});
+  const player=new Plyr(mount,{
+    controls:['play','progress','current-time','mute','volume','fullscreen'],
+    settings:[],
+    captions:{active:false,update:false},
+    ratio:'16:9',
+    autoplay:false,
+    hideControls:true,
+    youtube:{noCookie:true,rel:0,modestbranding:1,iv_load_policy:3,showinfo:0,playsinline:1,cc_load_policy:0,disablekb:1}
+  });
+  players.push(player);
 
-// Back to the poster on finish, so YouTube's end screen never appears
-player.on('ended',()=>{
-  player.stop();
-  vcover.classList.remove('gone');
+  // Our own cover starts playback, so YouTube chrome is never visible up front
+  cover.addEventListener('click',()=>{
+    players.forEach(o=>{if(o!==player)o.pause()});
+    if(typeof stopSong==='function')stopSong();
+    cover.classList.add('gone');
+    player.play();
+  });
+
+  // Back to the poster on finish, so YouTube's end screen never appears
+  player.on('ended',()=>{
+    player.stop();
+    cover.classList.remove('gone');
+  });
+});
+window.players=players;
+
+// Each episode has its own share link. Same story as the songs anchor on the
+// home page: the episodes sit well down the page, and a smooth scroll that far
+// gets cancelled by the reveal observer firing on the way, so jump instantly.
+function jumpToEpisode(){
+  const id=location.hash.slice(1);
+  if(!/^\d+$/.test(id))return;
+  const el=document.getElementById(id);
+  if(!el)return;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-118,behavior:'instant'});
+}
+if(/^#\d+$/.test(location.hash)){
+  window.addEventListener('load',()=>setTimeout(jumpToEpisode,60));
+}
+window.addEventListener('hashchange',jumpToEpisode);
+
+document.querySelectorAll('.ep-link').forEach(btn=>{
+  btn.addEventListener('click',async()=>{
+    const url=location.origin+location.pathname+'#'+btn.dataset.ep;
+    const label=btn.querySelector('span');
+    try{
+      await navigator.clipboard.writeText(url);
+      btn.classList.add('copied'); label.textContent='Copied';
+    }catch(e){
+      location.hash='#'+btn.dataset.ep; label.textContent='Link ready';
+    }
+    setTimeout(()=>{btn.classList.remove('copied');label.textContent='Copy link';},2000);
+  });
 });
 </script>
 </body>
