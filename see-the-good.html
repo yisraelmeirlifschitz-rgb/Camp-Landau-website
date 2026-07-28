@@ -30,6 +30,25 @@
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
+    "name": "STG See the Good #3, Camp Landau",
+    "description": "Episode 3 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.",
+    "thumbnailUrl": ["https://camp-landau.com/stg-03-poster.jpg"],
+    "uploadDate": "2026-07-28",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/4Bm_3lQVK7Q",
+    "contentUrl": "https://www.youtube.com/watch?v=4Bm_3lQVK7Q",
+    "url": "https://camp-landau.com/see-the-good#3",
+    "isFamilyFriendly": true,
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Camp Landau",
+      "url": "https://camp-landau.com/",
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
     "name": "STG See the Good #2, Camp Landau",
     "description": "Episode 2 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.",
     "thumbnailUrl": ["https://camp-landau.com/stg-02-poster.jpg"],
@@ -305,6 +324,30 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <h2 class="sec-title reveal">Watch the Clips</h2>
     <p class="sec-sub reveal">Watch the short version first. Stop the video, be Dan L'chaf Zechus together with everyone, and only then let the rest play.</p>
 
+    <article class="ep reveal" id="3">
+      <div class="ep-tag">
+        <span class="ep-badge">Episode 3</span>
+        <span class="ep-when">Tuesday, July 28</span>
+        <button class="ep-link" type="button" data-ep="3" title="Copy a link straight to this episode" aria-label="Copy link to episode 3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12a3.1 3.1 0 013.1-3.1h4V7H7a5 5 0 100 10h4v-1.9H7A3.1 3.1 0 013.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 010 6.2h-4V17h4a5 5 0 000-10z"/></svg><span>Copy link</span></button>
+      </div>
+
+      <div class="vshell">
+        <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="4Bm_3lQVK7Q"></div>
+        <div class="vcover" style="background-image:url('stg-03-poster.jpg')">
+          <div class="play-btn"></div>
+        </div>
+      </div>
+      <p class="vnote">The short clip comes first, and the full story is right after it in the same video.</p>
+
+      <div class="dl-row">
+        <a class="dl-btn" href="https://drive.usercontent.google.com/download?id=1cHWbb1M1HcDNYVQQMevA8p6DwpwRlOEK&amp;export=download&amp;confirm=t" target="_blank" rel="noopener" download="STG-03.mp4">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>
+          Download this clip
+        </a>
+        <p class="dl-note">Full quality, about 1.3 GB.</p>
+      </div>
+    </article>
+
     <article class="ep reveal" id="2">
       <div class="ep-tag">
         <span class="ep-badge">Episode 2</span>
@@ -469,6 +512,17 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   window.stopSong=()=>{audio.pause();row.classList.remove('playing');};
 })();
 
+// Each episode has its own share link. Same story as the songs anchor on the
+// home page: the episodes sit well down the page, and a smooth scroll that far
+// gets cancelled by the reveal observer firing on the way, so jump instantly.
+function jumpToEpisode(){
+  const id=location.hash.slice(1);
+  if(!/^\d+$/.test(id))return;
+  const el=document.getElementById(id);
+  if(!el)return;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-118,behavior:'instant'});
+}
+
 // Video, one player per episode
 const players=[];
 document.querySelectorAll('.ep').forEach(ep=>{
@@ -500,19 +554,13 @@ document.querySelectorAll('.ep').forEach(ep=>{
     player.stop();
     cover.classList.remove('gone');
   });
+
+  // Players size themselves after load and push the page down, which lands a
+  // hash jump short. Re-aim as each one settles.
+  player.on('ready',()=>{if(/^#\d+$/.test(location.hash))jumpToEpisode();});
 });
 window.players=players;
 
-// Each episode has its own share link. Same story as the songs anchor on the
-// home page: the episodes sit well down the page, and a smooth scroll that far
-// gets cancelled by the reveal observer firing on the way, so jump instantly.
-function jumpToEpisode(){
-  const id=location.hash.slice(1);
-  if(!/^\d+$/.test(id))return;
-  const el=document.getElementById(id);
-  if(!el)return;
-  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-118,behavior:'instant'});
-}
 if(/^#\d+$/.test(location.hash)){
   window.addEventListener('load',()=>setTimeout(jumpToEpisode,60));
 }
