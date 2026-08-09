@@ -182,6 +182,10 @@ section{padding:80px 24px}
 .vid-lightbox-inner{width:100%;max-width:1000px;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;position:relative}
 .vid-lightbox-inner iframe{width:100%;height:100%;border:none;display:block}
 
+.clips-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;background:#fff;color:var(--primary);font-family:'Figtree',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;text-decoration:none;border:2px solid var(--primary)}
+.clips-btn:hover{background:var(--primary);color:#fff;transform:translateY(-2px);box-shadow:0 8px 22px rgba(232,93,38,.32)}
+.clips-btn svg{width:17px;height:17px;fill:currentColor}
+.vid-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .yt-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;background:#ff0000;color:#fff;font-family:'Figtree',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;text-decoration:none;border:none;box-shadow:0 4px 16px rgba(255,0,0,.35)}
 .yt-btn:hover{background:#cc0000;transform:translateY(-2px)}
 
@@ -497,7 +501,8 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <h2 class="sec-title reveal">Camp Landau Videos 🎬</h2>
     <p class="sec-sub reveal">Relive the GISHMAK. Epic activities, Ruach filled moments, and the best summer you'll ever see! Click to watch.</p>
     <div class="vid-grid reveal" id="vidGrid"></div>
-    <div style="text-align:center" class="reveal">
+    <div class="vid-btns reveal">
+      <a href="/clips" class="clips-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4V6zm2 2v8h12V8H6zm3 1.5l5 2.5-5 2.5v-5z"/></svg>Daily Clips, Summer 2026</a>
       <a href="https://www.youtube.com/@camplandau9410" target="_blank" rel="noopener noreferrer" class="yt-btn">▶ Watch All Videos on YouTube</a>
     </div>
   </div>
