@@ -68,13 +68,7 @@ section{padding:52px 24px 80px}
 .clip{display:flex;flex-direction:column}
 .clip-shell{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#111;box-shadow:0 8px 28px rgba(0,0,0,.16);border:3px solid rgba(232,93,38,.16)}
 .clip-shell iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.clip-cover{position:absolute;inset:0;cursor:pointer;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;background-color:#111}
-.clip-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.12) 0%,rgba(0,0,0,.42) 100%);transition:background .25s}
-.clip-cover:hover::after{background:linear-gradient(to bottom,rgba(0,0,0,.05) 0%,rgba(0,0,0,.3) 100%)}
-.clip-cover.gone{display:none}
-.play-btn{position:relative;z-index:2;width:66px;height:66px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.42);transition:transform .25s,background .25s}
-.clip-cover:hover .play-btn{transform:scale(1.1);background:var(--pd)}
-.play-btn::before{content:'';width:0;height:0;border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.clip-shell::before{content:'';position:absolute;inset:0;background:#111 center/cover no-repeat;background-image:var(--thumb)}
 .clip-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:13px}
 .clip-name{font-family:'Figtree',sans-serif;font-size:16px;font-weight:800;color:#1a1a1a}
 .clip-date{font-size:13px;color:#999;font-weight:500;margin-top:1px}
@@ -149,7 +143,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <div class="ft-rainbow"></div>
     <div class="ft-row">
       <img src="https://media.base44.com/images/public/6a02dcbe52ad46f953869a81/ee451fe8d_Untitleddesign5.png" alt="Camp Landau" style="height:54px;filter:brightness(0) invert(1);cursor:pointer" onclick="location.href='/'">
-      <p>Sha'alei Torah, Nachal Sorek 16, Beit Shemesh. Summer 2026</p>
+      <p>Sha'alei Torah, Nachal Sorek 16, Beit Shemesh</p>
       <p>Rabbi Landau: 02-999-6341  |  Mordy: 058-675-8475</p>
     </div>
     <div class="ft-div">
@@ -171,6 +165,12 @@ const CLIPS=[
 const DL_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>';
 const grid=document.getElementById('clipGrid');
 
+const mountObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&e.target._mount){e.target._mount();mountObs.unobserve(e.target);}
+  });
+},{rootMargin:'400px'});
+
 if(!CLIPS.length){
   grid.innerHTML='<p class="empty">Clips are on the way.</p>';
 }else{
@@ -182,30 +182,24 @@ if(!CLIPS.length){
     const shell=document.createElement('div');
     shell.className='clip-shell';
 
-    const cover=document.createElement('div');
-    cover.className='clip-cover';
-    cover.style.backgroundImage="url('https://drive.google.com/thumbnail?id="+c.id+"&sz=w1280')";
-    cover.setAttribute('role','button');
-    cover.setAttribute('tabindex','0');
-    cover.setAttribute('aria-label','Play '+c.n);
-    cover.innerHTML='<div class="play-btn"></div>';
+    // Drive's own thumbnail sits behind the frame, so a card never looks
+    // empty while its player is still coming up
+    shell.style.setProperty('--thumb',"url('https://drive.google.com/thumbnail?id="+c.id+"&sz=w1280')");
 
-    // The frame is only created on click. Thirteen Drive players loading at
-    // once would make the page crawl, and most visitors watch one or two.
-    function play(){
+    // The player goes in when the card gets near the viewport rather than on
+    // load. One click to play, but twelve Drive frames are never built at once.
+    function mount(){
       if(shell.querySelector('iframe'))return;
       const f=document.createElement('iframe');
       f.src='https://drive.google.com/file/d/'+c.id+'/preview';
       f.allow='autoplay; fullscreen';
       f.allowFullscreen=true;
+      f.loading='lazy';
       f.title=c.n;
       shell.appendChild(f);
-      cover.classList.add('gone');
     }
-    cover.addEventListener('click',play);
-    cover.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
-
-    shell.appendChild(cover);
+    mountObs.observe(shell);
+    shell._mount=mount;
 
     const meta=document.createElement('div');
     meta.className='clip-meta';
