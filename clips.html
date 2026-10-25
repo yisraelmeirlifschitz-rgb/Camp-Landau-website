@@ -102,6 +102,22 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   .clips-head{padding:110px 20px 36px}
   section{padding:36px 20px 56px}
 }
+
+/* Floating SimplySite credit, bottom right */
+.ss-badge{position:fixed;right:18px;bottom:18px;z-index:150;display:flex;align-items:center;gap:8px;padding:7px 13px;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border:1px solid rgba(26,26,26,.07);border-radius:99px;box-shadow:0 4px 16px rgba(0,0,0,.1);text-decoration:none;opacity:.88;transition:opacity .25s ease,transform .25s ease,box-shadow .25s ease}
+.ss-badge:hover{opacity:1;transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.16)}
+.ss-badge:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.ss-badge img{display:block;height:21px;width:auto}
+.ss-txt{font-family:'Figtree',sans-serif;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.42);line-height:1;white-space:nowrap}
+.ss-badge.gone{opacity:0;transform:translateY(14px);pointer-events:none}
+@media(max-width:600px){
+  .ss-badge{right:12px;bottom:12px;padding:6px 12px;gap:0}
+  .ss-txt{display:none}
+  .ss-badge img{height:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ss-badge,.ss-badge:hover,.ss-badge.gone{transition:opacity .25s ease;transform:none}
+}
 </style>
 </head>
 <body>
@@ -254,5 +270,19 @@ document.getElementById('navLogo').addEventListener('click',()=>{location.href='
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}})},{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+
+<a class="ss-badge" id="ssBadge" href="https://simplysite.me" target="_blank" rel="noopener noreferrer">
+  <span class="ss-txt">Built by</span>
+  <img src="/simplysite-logo.png" width="480" height="122" alt="SimplySite">
+</a>
+<script>
+// Step the floating credit aside once the footer, which carries the same credit, is on screen.
+(function(){
+  const badge=document.getElementById('ssBadge'),ft=document.querySelector('footer');
+  if(!badge||!ft)return;
+  new IntersectionObserver(e=>badge.classList.toggle('gone',e[0].isIntersecting)).observe(ft);
+})();
+</script>
+
 </body>
 </html>
