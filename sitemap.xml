@@ -9,68 +9,6 @@
     <image:image><image:loc>https://camp-landau.com/img/about.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://camp-landau.com/see-the-good</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <video:video>
-      <video:thumbnail_loc>https://camp-landau.com/stg-07-poster.jpg</video:thumbnail_loc>
-      <video:title>STG See the Good #7, Camp Landau</video:title>
-      <video:description>Episode 7 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/tMYzx4zAQ1w</video:player_loc>
-      <video:publication_date>2026-08-05</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://camp-landau.com/stg-06-poster.jpg</video:thumbnail_loc>
-      <video:title>STG See the Good #6, Camp Landau</video:title>
-      <video:description>Episode 6 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/HLlZE6N9p0s</video:player_loc>
-      <video:publication_date>2026-08-04</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://camp-landau.com/stg-05-poster.jpg</video:thumbnail_loc>
-      <video:title>STG See the Good #5, Camp Landau</video:title>
-      <video:description>Episode 5 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/2awFKz7DYY0</video:player_loc>
-      <video:publication_date>2026-08-03</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://camp-landau.com/stg-04-poster.jpg</video:thumbnail_loc>
-      <video:title>STG See the Good #4, Camp Landau</video:title>
-      <video:description>Episode 4 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/H9I2KTyoZqo</video:player_loc>
-      <video:publication_date>2026-07-29</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://camp-landau.com/stg-03-poster.jpg</video:thumbnail_loc>
-      <video:title>STG See the Good #3, Camp Landau</video:title>
-      <video:description>Episode 3 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/4Bm_3lQVK7Q</video:player_loc>
-      <video:publication_date>2026-07-28</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://camp-landau.com/stg-02-poster.jpg</video:thumbnail_loc>
-      <video:title>STG See the Good #2, Camp Landau</video:title>
-      <video:description>Episode 2 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/ZSKJekRvpDU</video:player_loc>
-      <video:publication_date>2026-07-27</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://camp-landau.com/stg-01-poster.jpg</video:thumbnail_loc>
-      <video:title>STG See the Good #1, Camp Landau</video:title>
-      <video:description>Episode 1 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/q-MkUmqLmRY</video:player_loc>
-      <video:publication_date>2026-07-26</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-  </url>
-  <url>
     <loc>https://camp-landau.com/gallery</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -211,9 +149,230 @@
     <image:image><image:loc>https://camp-landau.com/img/gallery/624898809f.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://camp-landau.com/clips</loc>
+    <loc>https://camp-landau.com/videos</loc>
     <lastmod>2026-10-26</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/32PcuR7ILeo.webp</video:thumbnail_loc>
+      <video:title>Camp Landau Highlights Video 2026</video:title>
+      <video:description>Highlights from the summer of 2026 at Camp Landau, the summer camp for English-speaking boys in Ramat Beit Shemesh.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/32PcuR7ILeo</video:player_loc>
+      <video:duration>855</video:duration>
+      <video:publication_date>2026-08-13T11:52:53+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/2HSigkU0G1Q.webp</video:thumbnail_loc>
+      <video:title>Camp Landau Highlights Video 2025</video:title>
+      <video:description>Highlights from the summer of 2025 at Camp Landau in Ramat Beit Shemesh.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/2HSigkU0G1Q</video:player_loc>
+      <video:duration>1000</video:duration>
+      <video:publication_date>2025-08-17T15:23:04+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/xC4pA8HPUxs.webp</video:thumbnail_loc>
+      <video:title>Camp Landau Highlights Video 2024</video:title>
+      <video:description>Highlights from the summer of 2024 at Camp Landau in Ramat Beit Shemesh.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/xC4pA8HPUxs</video:player_loc>
+      <video:duration>1079</video:duration>
+      <video:publication_date>2024-08-29T06:28:51+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/TofY2-VNvn8.webp</video:thumbnail_loc>
+      <video:title>Camp Landau Video 2023</video:title>
+      <video:description>The Camp Landau video from the summer of 2023.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/TofY2-VNvn8</video:player_loc>
+      <video:duration>432</video:duration>
+      <video:publication_date>2023-08-12T20:27:26+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/b8J_Xug6CJM.webp</video:thumbnail_loc>
+      <video:title>Camp Landau 2022 Highlights Video</video:title>
+      <video:description>Highlights from the summer of 2022 at Camp Landau in Ramat Beit Shemesh.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/b8J_Xug6CJM</video:player_loc>
+      <video:duration>672</video:duration>
+      <video:publication_date>2022-08-22T10:14:43+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/7pLMklOfNFU.webp</video:thumbnail_loc>
+      <video:title>Camp Landau 2021 Highlights</video:title>
+      <video:description>Highlights from the summer of 2021 at Camp Landau in Ramat Beit Shemesh.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/7pLMklOfNFU</video:player_loc>
+      <video:duration>963</video:duration>
+      <video:publication_date>2021-08-04T17:10:13+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/xGEE-QTJrxk.webp</video:thumbnail_loc>
+      <video:title>Camp Landau Highlights 2020</video:title>
+      <video:description>Highlights from the summer of 2020 at Camp Landau in Ramat Beit Shemesh.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/xGEE-QTJrxk</video:player_loc>
+      <video:duration>393</video:duration>
+      <video:publication_date>2021-08-04T16:02:04+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/MV5iP4B37Do.webp</video:thumbnail_loc>
+      <video:title>Camp Landau 2026 Color War Finale Video</video:title>
+      <video:description>The Color War finale from Camp Landau, summer 2026.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/MV5iP4B37Do</video:player_loc>
+      <video:duration>3751</video:duration>
+      <video:publication_date>2026-08-12T14:21:24+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/A7iOW3pbHZ0.webp</video:thumbnail_loc>
+      <video:title>Camp Landau Color War 2025</video:title>
+      <video:description>Color War at Camp Landau, summer 2025.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/A7iOW3pbHZ0</video:player_loc>
+      <video:duration>3600</video:duration>
+      <video:publication_date>2025-08-18T13:35:23+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/tY47aByVY0E.webp</video:thumbnail_loc>
+      <video:title>Camp Landau Concert &amp; Color War Breakout 2022</video:title>
+      <video:description>The Camp Landau concert and Color War breakout of summer 2022.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/tY47aByVY0E</video:player_loc>
+      <video:duration>387</video:duration>
+      <video:publication_date>2022-08-16T19:59:29+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/hQVnWxhRjq4.webp</video:thumbnail_loc>
+      <video:title>Best Color War Breakout Ever, Camp Landau</video:title>
+      <video:description>Camp Landau's 2019 Color War breakout. The campers came to a hall for a concert, found a bris running late and sat down to wait. Everyone at the bris was an actor.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/hQVnWxhRjq4</video:player_loc>
+      <video:duration>457</video:duration>
+      <video:publication_date>2019-08-26T19:39:14+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/13LNH-TtkY8.webp</video:thumbnail_loc>
+      <video:title>Camp Landau Kululam 2025</video:title>
+      <video:description>The whole of Camp Landau sings together in the 2025 Kululam. Music by Moshe Pogrow, arranged and conducted by Yedidya Schneider.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/13LNH-TtkY8</video:player_loc>
+      <video:duration>276</video:duration>
+      <video:publication_date>2025-08-27T08:11:28+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/Ca3V7ruZex4.webp</video:thumbnail_loc>
+      <video:title>25 Years of Camp Landau Song</video:title>
+      <video:description>The 25 Years of Camp Landau song, from summer 2025.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/Ca3V7ruZex4</video:player_loc>
+      <video:duration>268</video:duration>
+      <video:publication_date>2025-08-18T19:13:24+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/O9iOqoQQjO4.webp</video:thumbnail_loc>
+      <video:title>Papa-Captain Official Music Video</video:title>
+      <video:description>The official Papa-Captain music video from Camp Landau. Lyrics by Captain Yo.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/O9iOqoQQjO4</video:player_loc>
+      <video:duration>231</video:duration>
+      <video:publication_date>2019-08-26T23:19:16+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://camp-landau.com/music</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/13LNH-TtkY8.webp</video:thumbnail_loc>
+      <video:title>Camp Landau Kululam 2025</video:title>
+      <video:description>The whole of Camp Landau sings together in the 2025 Kululam. Music by Moshe Pogrow, arranged and conducted by Yedidya Schneider.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/13LNH-TtkY8</video:player_loc>
+      <video:duration>276</video:duration>
+      <video:publication_date>2025-08-27T08:11:28+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/Ca3V7ruZex4.webp</video:thumbnail_loc>
+      <video:title>25 Years of Camp Landau Song</video:title>
+      <video:description>The 25 Years of Camp Landau song, from summer 2025.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/Ca3V7ruZex4</video:player_loc>
+      <video:duration>268</video:duration>
+      <video:publication_date>2025-08-18T19:13:24+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/img/videos/O9iOqoQQjO4.webp</video:thumbnail_loc>
+      <video:title>Papa-Captain Official Music Video</video:title>
+      <video:description>The official Papa-Captain music video from Camp Landau. Lyrics by Captain Yo.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/O9iOqoQQjO4</video:player_loc>
+      <video:duration>231</video:duration>
+      <video:publication_date>2019-08-26T23:19:16+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://camp-landau.com/see-the-good</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/stg-07-poster.jpg</video:thumbnail_loc>
+      <video:title>STG See the Good #7, Camp Landau</video:title>
+      <video:description>Episode 7 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/tMYzx4zAQ1w</video:player_loc>
+      <video:publication_date>2026-08-05</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/stg-06-poster.jpg</video:thumbnail_loc>
+      <video:title>STG See the Good #6, Camp Landau</video:title>
+      <video:description>Episode 6 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/HLlZE6N9p0s</video:player_loc>
+      <video:publication_date>2026-08-04</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/stg-05-poster.jpg</video:thumbnail_loc>
+      <video:title>STG See the Good #5, Camp Landau</video:title>
+      <video:description>Episode 5 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/2awFKz7DYY0</video:player_loc>
+      <video:publication_date>2026-08-03</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/stg-04-poster.jpg</video:thumbnail_loc>
+      <video:title>STG See the Good #4, Camp Landau</video:title>
+      <video:description>Episode 4 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/H9I2KTyoZqo</video:player_loc>
+      <video:publication_date>2026-07-29</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/stg-03-poster.jpg</video:thumbnail_loc>
+      <video:title>STG See the Good #3, Camp Landau</video:title>
+      <video:description>Episode 3 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/4Bm_3lQVK7Q</video:player_loc>
+      <video:publication_date>2026-07-28</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/stg-02-poster.jpg</video:thumbnail_loc>
+      <video:title>STG See the Good #2, Camp Landau</video:title>
+      <video:description>Episode 2 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/ZSKJekRvpDU</video:player_loc>
+      <video:publication_date>2026-07-27</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://camp-landau.com/stg-01-poster.jpg</video:thumbnail_loc>
+      <video:title>STG See the Good #1, Camp Landau</video:title>
+      <video:description>Episode 1 of See the Good at Camp Landau. A clip that looks bad, a chance to be Dan L'chaf Zechus, and then the full footage showing what was really going on.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/q-MkUmqLmRY</video:player_loc>
+      <video:publication_date>2026-07-26</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
 </urlset>

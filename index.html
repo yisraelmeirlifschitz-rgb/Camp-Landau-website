@@ -18,7 +18,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://camp-landau.com/">
 <meta property="og:site_name" content="Camp Landau">
-<meta property="og:title" content="Camp Landau – The Most Gishmak Summer of Your Life!">
+<meta property="og:title" content="Camp Landau: The Most Gishmak Summer of Your Life!">
 <meta property="og:description" content="Camp Landau is Ramat Beit Shemesh's #1 summer camp. We're packed with Sports, Swimming, Trips, Ruach, Games, Shtick, and SO MUCH MORE!!! Run by Gishmak counselors who live to make every single day insane.">
 <meta property="og:image" content="https://camp-landau.com/og.jpg">
 <meta property="og:image:secure_url" content="https://camp-landau.com/og.jpg">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Camp Landau – The Most Gishmak Summer of Your Life!">
+<meta name="twitter:title" content="Camp Landau: The Most Gishmak Summer of Your Life!">
 <meta name="twitter:description" content="Camp Landau is Ramat Beit Shemesh's #1 summer camp. We're packed with Sports, Swimming, Trips, Ruach, Games, Shtick, and SO MUCH MORE!!! Run by Gishmak counselors who live to make every single day insane.">
 <meta name="twitter:image" content="https://camp-landau.com/og.jpg">
 <meta name="twitter:image:alt" content="The Camp Landau logo over a packed camp event">
@@ -66,6 +66,9 @@ nav.scrolled .nav-logo-img,nav:has(.hamburger.open) .nav-logo-img{height:52px}
 /* The hero already shows the big logo, so the nav's logo waits until that one has slid under the nav */
 nav.at-hero .nav-logo-img{opacity:0;transform:translateY(-8px) scale(.92);pointer-events:none}
 nav:has(.hamburger.open) .nav-logo-img{opacity:1;transform:none;pointer-events:auto}
+nav.at-hero .nav-logo-img-wrap{pointer-events:none}
+nav:has(.hamburger.open) .nav-logo-img-wrap{pointer-events:auto}
+nav.at-hero .nav-logo-img-wrap:focus-visible .nav-logo-img{opacity:1;transform:none}
 .nav-logo-img-wrap{position:absolute;left:24px}.hamburger-wrap{position:absolute;right:24px}
 .nav-links{display:flex;align-items:center;gap:24px}
 .nav-links a{font-family:'Figtree',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.95);background:none;border:none;cursor:pointer;padding:4px 0;position:relative;transition:color .2s,text-shadow .4s;text-decoration:none;text-shadow:0 1px 4px rgba(0,0,0,.5)}
@@ -170,14 +173,14 @@ section{padding:80px 24px}
 /* VIDEOS - thumbnail approach */
 .vid-bg{background:#f3f4f6}
 .vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
-.vthumb{border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.1);border:2px solid rgba(232,93,38,.15);background:#000;transition:all .3s;cursor:pointer;position:relative;aspect-ratio:16/9}
+.vthumb{border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.1);border:2px solid rgba(232,93,38,.15);background:#000;background-clip:padding-box;transition:all .3s;cursor:pointer;position:relative;aspect-ratio:16/9}
 .vthumb:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(0,0,0,.2)}
 .vthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .vthumb:hover img{transform:scale(1.05)}
 .vthumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.45) 100%);pointer-events:none}
 .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;background:rgba(255,0,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:all .25s;z-index:2}
 .play-btn::before{content:'';width:0;height:0;border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:5px}
-.vthumb:hover .play-btn{background:#ff0000;transform:translate(-50%,-50%) scale(1.15);box-shadow:0 12px 32px rgba(255,0,0,.5)}
+.vplay:hover .play-btn{background:#ff0000;transform:translate(-50%,-50%) scale(1.15);box-shadow:0 12px 32px rgba(255,0,0,.5)}
 .vthumb .vlabel{position:absolute;bottom:12px;left:14px;right:14px;color:#fff;font-family:'Figtree',sans-serif;font-size:13px;font-weight:700;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.6)}
 
 /* Video lightbox */
@@ -186,12 +189,17 @@ section{padding:80px 24px}
 .vid-lightbox-inner{width:100%;max-width:1000px;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;position:relative}
 .vid-lightbox-inner iframe{width:100%;height:100%;border:none;display:block}
 
-.clips-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;background:#fff;color:var(--primary);font-family:'Figtree',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;text-decoration:none;border:2px solid var(--primary)}
-.clips-btn:hover{background:var(--primary);color:#fff;transform:translateY(-2px);box-shadow:0 8px 22px rgba(232,93,38,.32)}
-.clips-btn svg{width:17px;height:17px;fill:currentColor}
+.vplay{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer;display:block}
+.vplay:focus-visible{outline:3px solid var(--primary);outline-offset:-3px}
+.vthumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.vthumb.playing::after{display:none}
+.vthumb.playing:hover{transform:none}
 .vid-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.yt-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;background:#ff0000;color:#fff;font-family:'Figtree',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;text-decoration:none;border:none;box-shadow:0 4px 16px rgba(255,0,0,.35)}
-.yt-btn:hover{background:#cc0000;transform:translateY(-2px)}
+/* "More" buttons that lead from a home section to its own page */
+.more-btn{display:inline-block;padding:14px 36px;background:var(--primary);color:#fff;border-radius:50px;font-family:'Figtree',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;box-shadow:0 6px 20px rgba(232,93,38,.35)}
+.more-btn:hover{background:var(--pd);transform:translateY(-2px)}
+.more-btn:focus-visible{outline:3px solid var(--pd);outline-offset:3px}
+.more-row{text-align:center;margin-top:28px}
 
 .music-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
 .mplat{display:flex;flex-direction:column;gap:14px}
@@ -279,7 +287,7 @@ footer{background:#1a1a1a;color:#fff;padding:40px 24px 24px}
 .ft-inner{max-width:1100px;margin:0 auto}
 .ft-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer p{font-size:13px;color:rgba(255,255,255,.5)}
-.ft-div{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);text-align:center}
+.ft-div{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);text-align:center}
 .ft-div p{font-size:12px;color:rgba(255,255,255,.3)}
 
 @media(max-width:768px){
@@ -331,6 +339,13 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 .ft-credit img{display:block;height:21px;width:auto}
 
 /* Floating SimplySite credit, bottom right */
+.skip{position:absolute;left:-9999px;top:12px;z-index:300;background:#fff;color:#1a1a1a;padding:10px 16px;border-radius:10px;font-family:'Figtree',sans-serif;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.skip:focus{left:12px}
+.ft-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-top:26px}
+.ft-nav a{font-family:'Figtree',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;padding:4px 0;transition:color .2s}
+.ft-nav a:hover{color:#fff}
+.ft-logo img{height:54px;width:auto;filter:brightness(0) invert(1);display:block}
+
 .ss-badge{position:fixed;right:18px;bottom:18px;z-index:150;display:flex;align-items:center;gap:8px;padding:7px 13px;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border:1px solid rgba(26,26,26,.07);border-radius:99px;box-shadow:0 4px 16px rgba(0,0,0,.1);text-decoration:none;opacity:.88;transition:opacity .25s ease,transform .25s ease,box-shadow .25s ease}
 .ss-badge:hover{opacity:1;transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.16)}
 .ss-badge:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
@@ -371,7 +386,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   "image": "https://camp-landau.com/og.jpg",
   "sameAs": [
     "https://open.spotify.com/artist/5GvoGwRrTwcms4Vo4EOi9o",
-    "https://www.youtube.com/@camplandau9410",
+    "https://www.youtube.com/@camplandauRBS",
     "https://www.youtube.com/channel/UCqwyAmEKgm2smBQ2U0_59Xg",
     "https://24six.app/preview/music/artist/2650/camp-landau"
   ],
@@ -416,33 +431,34 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 </head>
 <body>
 
-<nav id="nav" class="at-hero">
+<a class="skip" href="#main">Skip to content</a>
+<nav id="nav" class="at-hero" aria-label="Main">
   <div class="nav-inner">
-    <div class="nav-logo-img-wrap"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" class="nav-logo-img" id="navLogo"></div>
+    <a href="/" class="nav-logo-img-wrap" id="navLogo"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" class="nav-logo-img"></a>
     <div class="nav-links">
   <a href="#about">About</a>
   <a href="#activities">Activities</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#videos">Videos</a>
-  <a href="#music">Music</a>
+  <a href="/gallery">Gallery</a>
+  <a href="/videos">Videos</a>
+  <a href="/music">Music</a>
   <a href="/see-the-good">STG</a>
   <a href="#contact">Contact</a>
 </div>
-    <div class="hamburger-wrap"><button class="hamburger" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button></div>
+    <div class="hamburger-wrap"><button class="hamburger" id="hamb" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobMenu"><span></span><span></span><span></span></button></div>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobMenu">
   <a href="#about" onclick="closeMenu()">About</a>
   <a href="#activities" onclick="closeMenu()">Activities</a>
-  <a href="#gallery" onclick="closeMenu()">Gallery</a>
-  <a href="#videos" onclick="closeMenu()">Videos</a>
-  <a href="#music" onclick="closeMenu()">Music</a>
+  <a href="/gallery">Gallery</a>
+  <a href="/videos">Videos</a>
+  <a href="/music">Music</a>
   <a href="/see-the-good">STG</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
-<main>
+<main id="main">
 <section class="hero" id="hero">
   <div class="hero-bg">
   <picture>
@@ -538,6 +554,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <p class="sec-sub reveal">What the Gishmak in Camp Landau looks like!</p>
     <div class="gallery-rainbow reveal"></div>
     <div class="gallery-grid" id="gGrid"></div>
+    <div class="more-row"><a href="/gallery" class="more-btn">View More Photos 📸</a></div>
   </div>
 </section>
 
@@ -553,10 +570,13 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <span class="sec-label reveal">Watch & Enjoy</span>
     <h2 class="sec-title reveal">Camp Landau Videos 🎬</h2>
     <p class="sec-sub reveal">Relive the GISHMAK. Epic activities, Ruach filled moments, and the best summer you'll ever see! Click to watch.</p>
-    <div class="vid-grid reveal" id="vidGrid"></div>
+    <div class="vid-grid reveal">
+      <div class="vthumb"><button type="button" class="vplay" data-yt="32PcuR7ILeo" aria-label="Play Camp Highlights 2026"><img src="/img/videos/32PcuR7ILeo-sm.webp" srcset="/img/videos/32PcuR7ILeo-sm.webp 480w, /img/videos/32PcuR7ILeo.webp 960w" sizes="(max-width:768px) calc(100vw - 48px), 355px" width="480" height="270" alt="" loading="lazy" decoding="async"><span class="play-btn" aria-hidden="true"></span><span class="vlabel">Camp Highlights 2026</span></button></div>
+      <div class="vthumb"><button type="button" class="vplay" data-yt="MV5iP4B37Do" aria-label="Play Color War Finale 2026"><img src="/img/videos/MV5iP4B37Do-sm.webp" srcset="/img/videos/MV5iP4B37Do-sm.webp 480w, /img/videos/MV5iP4B37Do.webp 960w" sizes="(max-width:768px) calc(100vw - 48px), 355px" width="480" height="270" alt="" loading="lazy" decoding="async"><span class="play-btn" aria-hidden="true"></span><span class="vlabel">Color War Finale 2026</span></button></div>
+      <div class="vthumb"><button type="button" class="vplay" data-yt="A7iOW3pbHZ0" aria-label="Play Color War 2025"><img src="/img/videos/A7iOW3pbHZ0-sm.webp" srcset="/img/videos/A7iOW3pbHZ0-sm.webp 480w, /img/videos/A7iOW3pbHZ0.webp 960w" sizes="(max-width:768px) calc(100vw - 48px), 355px" width="480" height="270" alt="" loading="lazy" decoding="async"><span class="play-btn" aria-hidden="true"></span><span class="vlabel">Color War 2025</span></button></div>
+    </div>
     <div class="vid-btns reveal">
-      <a href="/clips" class="clips-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4V6zm2 2v8h12V8H6zm3 1.5l5 2.5-5 2.5v-5z"/></svg>Daily Clips, Summer 2026</a>
-      <a href="https://www.youtube.com/@camplandau9410" target="_blank" rel="noopener noreferrer" class="yt-btn">▶ Watch All Videos on YouTube</a>
+      <a href="/videos" class="more-btn">More Videos 🎬</a>
     </div>
   </div>
 </section>
@@ -596,7 +616,9 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   <div style="font-family:'Figtree',sans-serif;font-weight:700;font-size:15px;color:#1a1a1a;margin-bottom:12px">Camp Songs</div>
   <div style="font-size:12.5px;color:#888;margin-bottom:12px;margin-top:-6px">Play them right here, or download to keep.</div>
   <div id="audioList">Loading songs...</div>
-</div>  </div>
+</div>
+    <div class="more-row reveal"><a href="/music" class="more-btn">More Music 🎵</a></div>
+  </div>
 </section>
 
 <section id="contact" class="contact-bg">
@@ -640,9 +662,17 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   <div class="ft-inner">
     <div class="ft-rainbow"></div>
     <div class="ft-row">
-      <img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" loading="lazy" style="height:54px;width:auto;filter:brightness(0) invert(1);cursor:pointer" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <a href="/" class="ft-logo" id="ftLogo"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" loading="lazy"></a>
       <p>Sha'alei Torah, Nachal Sorek 16, Beit Shemesh</p>
       <p>Rabbi Landau: 02-999-6341  |  Mordy: 058-675-8475</p>
+    </div>
+    <div class="ft-nav" role="navigation" aria-label="Site pages">
+      <a href="/">Home</a>
+      <a href="/gallery">Photo Gallery</a>
+      <a href="/videos">Videos</a>
+      <a href="/music">Music</a>
+      <a href="/see-the-good">See the Good</a>
+      <a href="#contact">Contact</a>
     </div>
     <div class="ft-div">
   <p>© 2026 Camp Landau. All rights reserved.</p>
@@ -687,16 +717,21 @@ window.addEventListener('hashchange',()=>{
 function closeMenu(){
   document.getElementById('hamb').classList.remove('open');
   document.getElementById('mobMenu').classList.remove('open');
+  document.getElementById('hamb').setAttribute('aria-expanded','false');
 }
 document.getElementById('hamb').addEventListener('click',(e)=>{
   e.stopPropagation();
-  document.getElementById('hamb').classList.toggle('open');
-  document.getElementById('mobMenu').classList.toggle('open');
+  const open=document.getElementById('mobMenu').classList.toggle('open');
+  document.getElementById('hamb').classList.toggle('open',open);
+  document.getElementById('hamb').setAttribute('aria-expanded',open);
 });
 document.addEventListener('click',(e)=>{
   if(!e.target.closest('#mobMenu')&&!e.target.closest('#hamb')){closeMenu()}
 });
-document.getElementById('navLogo').addEventListener('click',()=>{closeMenu();window.scrollTo({top:0,behavior:'smooth'})});
+// The logos link home; on the home page itself they just glide back to the top
+['navLogo','ftLogo'].forEach(id=>document.getElementById(id).addEventListener('click',e=>{
+  e.preventDefault();closeMenu();window.scrollTo({top:0,behavior:'smooth'});
+}));
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 },{passive:true});
@@ -715,27 +750,23 @@ const obs=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
 
 // ── VIDEOS ──
-
-const videos=[
-  {id:'32PcuR7ILeo', label:'Camp Highlights 2026'},
-  {id:'MV5iP4B37Do', label:'Color War Finale 2026'},
-  {id:'A7iOW3pbHZ0', label:'Color War 2025'},
-];
-
-const vGrid=document.getElementById('vidGrid');
-videos.forEach((v,i)=>{
-  const div=document.createElement('div');
-  div.className='vthumb';
-  div.style.transitionDelay=(i*0.05)+'s';
-  div.innerHTML=`
-    <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${v.label}" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${v.id}/mqdefault.jpg'">
-    <div class="play-btn" aria-label="Play"></div>
-    <div class="vlabel">${v.label}</div>
-  `;
-  div.addEventListener('click',()=>{
-    div.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;border-radius:12px;display:block"></iframe>`;
+// Each card is a picture until tapped, so the page never loads a YouTube player
+// it doesn't need. Starting one puts the last one back to its picture.
+let playingVid=null;
+document.querySelectorAll('.vplay').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const box=btn.parentElement;
+    if(playingVid){playingVid.box.replaceChildren(playingVid.btn);playingVid.box.classList.remove('playing');}
+    const f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+btn.dataset.yt+'?autoplay=1&rel=0&modestbranding=1';
+    f.title=btn.getAttribute('aria-label').replace(/^Play /,'');
+    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    f.allowFullscreen=true;
+    box.classList.add('playing');
+    box.replaceChildren(f);
+    playingVid={box,btn};
+    if(typeof pauseSongs==='function')pauseSongs();
   });
-  vGrid.appendChild(div);
 });
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){closeLb();}
@@ -773,15 +804,6 @@ const grid=document.getElementById('gGrid');
 
   PHOTOS.slice(0,LIMIT).forEach((id,i)=>addImg(id,i));
 
-  if(PHOTOS.length>LIMIT){
-    const btn=document.createElement('button');
-    btn.textContent='View More Photos 📸';
-    btn.style.cssText='display:block;margin:28px auto 0;padding:14px 36px;background:var(--primary);color:#fff;border:none;border-radius:50px;font-family:Figtree,sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s,transform .2s;box-shadow:0 6px 20px rgba(232,93,38,.35)';
-    btn.onmouseover=()=>{btn.style.background='#c44d1a';btn.style.transform='translateY(-2px)'};
-    btn.onmouseout=()=>{btn.style.background='var(--primary)';btn.style.transform='none'};
-    btn.addEventListener('click',()=>{location.href='/gallery'});
-    grid.insertAdjacentElement('afterend',btn);
-  }
 })();
 
 function openLb(src){
@@ -838,137 +860,9 @@ function lbNav(dir){
   },{rootMargin:'400px'}).observe(f);
 })();
 
-// ── CAMP SONGS, play inline or download ──
-const SONG_API='https://api.github.com/repos/yisraelmeirlifschitz-rgb/Camp-Landau-website/contents/audio';
-const ICON_PLAY='<svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
-const ICON_PAUSE='<svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>';
-const ICON_DL='<svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>';
-
-// One element for every song, so starting one always stops the other
-const audio=new Audio();
-audio.preload='none';
-let currentRow=null;
-
-function fmt(s){
-  if(!isFinite(s))return '0:00';
-  const m=Math.floor(s/60), r=Math.floor(s%60);
-  return m+':'+String(r).padStart(2,'0');
-}
-function paintSeek(el){
-  const pct=el.max>0 ? (el.value/el.max)*100 : 0;
-  el.style.background='linear-gradient(to right,var(--primary) '+pct+'%,#dfe2e6 '+pct+'%)';
-}
-function clearRow(){
-  if(!currentRow)return;
-  currentRow.classList.remove('playing');
-  currentRow=null;
-}
-
-// GitHub's API allows 60 requests an hour per network, which a busy shared
-// connection can use up. When it refuses, fall back to the songs that were here
-// at the last update, so the player never comes up empty.
-const SONGS_FALLBACK=['Camp Landau 2025 Kululam.mp3','Camp Landau Remix #1.mp3','Camp Landau remix #2.mp3','See The Good.mp3'];
-
-fetch(SONG_API)
-  .then(r=>{if(!r.ok)throw new Error('api');return r.json();})
-  .catch(()=>SONGS_FALLBACK.map(name=>({name})))
-  .then(files=>{
-    const songs=files.filter(f=>f.name.match(/\.(mp3|wav|m4a|ogg|flac)$/i));
-    const list=document.getElementById('audioList');
-    if(!songs.length){list.textContent='No songs uploaded yet.';return;}
-    list.innerHTML='';
-
-    songs.forEach(song=>{
-      const name=song.name.replace(/\.[^.]+$/,'');
-      // The files deploy with the site, so play and download them from here.
-      // Same origin also lets the download attribute actually download.
-      const url='/audio/'+encodeURIComponent(song.name);
-      const row=document.createElement('div');
-      row.className='song';
-
-      const btn=document.createElement('button');
-      btn.className='song-btn';
-      btn.type='button';
-      btn.setAttribute('aria-label','Play '+name);
-      btn.innerHTML=ICON_PLAY+ICON_PAUSE;
-
-      const main=document.createElement('div');
-      main.className='song-main';
-      const nm=document.createElement('div');
-      nm.className='song-name';
-      nm.textContent=name;
-      const bar=document.createElement('div');
-      bar.className='song-bar';
-      const seek=document.createElement('input');
-      seek.type='range';seek.className='song-seek';
-      seek.min=0;seek.max=0;seek.value=0;seek.step='any';
-      seek.setAttribute('aria-label','Seek');
-      const time=document.createElement('span');
-      time.className='song-time';
-      time.textContent='0:00';
-      bar.appendChild(seek);bar.appendChild(time);
-      main.appendChild(nm);main.appendChild(bar);
-
-      const dl=document.createElement('a');
-      dl.className='song-dl';
-      dl.href=url;
-      dl.download=song.name;
-      dl.title='Download '+name;
-      dl.setAttribute('aria-label','Download '+name);
-      dl.innerHTML=ICON_DL;
-
-      row.appendChild(btn);row.appendChild(main);row.appendChild(dl);
-      list.appendChild(row);
-
-      row._src=url;
-      row._seek=seek;
-      row._time=time;
-
-      btn.addEventListener('click',()=>{
-        if(currentRow===row){
-          if(audio.paused){audio.play();}else{audio.pause();}
-          return;
-        }
-        clearRow();
-        currentRow=row;
-        row.classList.add('playing');
-        audio.src=row._src;
-        audio.play();
-      });
-
-      seek.addEventListener('input',()=>{
-        if(currentRow===row&&isFinite(audio.duration)){
-          audio.currentTime=seek.value;
-          paintSeek(seek);
-        }
-      });
-    });
-
-    audio.addEventListener('loadedmetadata',()=>{
-      if(!currentRow)return;
-      currentRow._seek.max=audio.duration||0;
-      paintSeek(currentRow._seek);
-    });
-    audio.addEventListener('timeupdate',()=>{
-      if(!currentRow)return;
-      currentRow._seek.value=audio.currentTime;
-      paintSeek(currentRow._seek);
-      currentRow._time.textContent=fmt(audio.currentTime)+' / '+fmt(audio.duration);
-    });
-    audio.addEventListener('ended',()=>{
-      if(!currentRow)return;
-      currentRow._seek.value=0;
-      paintSeek(currentRow._seek);
-      clearRow();
-    });
-    audio.addEventListener('error',()=>{
-      if(!currentRow)return;
-      currentRow._time.textContent='Could not play';
-    });
-
-    if(location.hash==='#songs')jumpToSongs();
-  })
-  .catch(()=>document.getElementById('audioList').textContent='Could not load songs.');
+// ── CAMP SONGS ── the player lives in /songs.js, shared with /music.
+// Once its rows are built, a #songs link lands on them.
+document.addEventListener('songsready',()=>{if(location.hash==='#songs')jumpToSongs();});
 
 
 // Logo click animation
@@ -1008,6 +902,7 @@ heroLogo.addEventListener('click', function(e) {
   }
 });
 </script>
+<script src="/songs.js"></script>
 
 <a class="ss-badge" id="ssBadge" href="https://simplysite.me" target="_blank" rel="noopener noreferrer">
   <span class="ss-txt">Built by</span>

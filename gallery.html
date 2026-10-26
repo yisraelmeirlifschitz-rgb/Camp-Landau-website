@@ -48,17 +48,64 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--primary:#e85d26}
+:root{--primary:#e85d26;--pd:#c44d1a}
 body{font-family:'Figtree',sans-serif;background:#f8f8f8;color:#1a1a1a;min-height:100vh}
-header{background:#fff;border-bottom:4px solid rgba(232,93,38,.3);box-shadow:0 2px 12px rgba(0,0,0,.07);padding:16px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:10}
-header img{height:52px;width:auto;cursor:pointer}
-header h1{font-size:clamp(18px,2.5vw,26px);font-weight:900;color:#1a1a1a}
-header a{margin-left:auto;font-size:14px;font-weight:700;color:var(--primary);text-decoration:none;padding:8px 18px;border:2px solid var(--primary);border-radius:50px;transition:background .2s,color .2s}
-header a:hover{background:var(--primary);color:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;padding:20px;max-width:1400px;margin:0 auto}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+.skip{position:absolute;left:-9999px;top:12px;z-index:300;background:#fff;color:#1a1a1a;padding:10px 16px;border-radius:10px;font-family:'Figtree',sans-serif;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.skip:focus{left:12px}
+
+/* NAV, the same bar on every page */
+.rainbow-bar{height:8px;background:linear-gradient(to right,#ef4444,#f59e0b,#22c55e,#3b82f6,#a855f7);position:fixed;top:0;left:0;right:0;z-index:201}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:4px solid rgba(232,93,38,.3);box-shadow:0 4px 20px rgba(0,0,0,.13)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:center;position:relative;height:68px}
+.nav-logo-img-wrap{position:absolute;left:24px;display:block}
+.hamburger-wrap{position:absolute;right:24px}
+.nav-logo-img{height:52px;width:auto;display:block;transition:opacity .2s}
+.nav-logo-img-wrap:hover .nav-logo-img{opacity:.8}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-family:'Figtree',sans-serif;font-size:14px;font-weight:600;color:#1a1a1a;padding:4px 0;position:relative;transition:color .2s;text-decoration:none}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--primary);transition:width .25s}
+.nav-links a:hover,.nav-links a.here{color:var(--primary)}
+.nav-links a:hover::after,.nav-links a.here::after{width:100%}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px;width:42px;height:42px;justify-content:center;align-items:center}
+.hamburger span{width:24px;height:2.5px;background:#1a1a1a;border-radius:99px;transition:all .3s ease;display:block}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:4px solid rgba(232,93,38,.3);z-index:199;box-shadow:0 8px 32px rgba(0,0,0,.12);padding:18px 20px;flex-direction:column;gap:0}
+.mobile-menu.open{display:flex;animation:slideDown .3s ease}
+.mobile-menu a{font-family:'Figtree',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;padding:14px 4px;text-align:left;border-bottom:1px solid #f3f4f6;transition:color .2s;text-decoration:none;display:block}
+.mobile-menu a:hover,.mobile-menu a.here{color:var(--primary)}
+.mobile-menu a:last-of-type{border-bottom:none}
+
+/* PAGE HEAD */
+.page-head{padding:120px 24px 34px;text-align:center;background:#f9fafb;border-bottom:1px solid #eceef1}
+.sec-label{font-family:'Figtree',sans-serif;color:var(--primary);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:8px;text-align:center}
+.page-title{font-family:'Figtree',sans-serif;font-size:clamp(30px,4.8vw,46px);font-weight:900;color:#1a1a1a;margin-bottom:14px;text-wrap:balance}
+.page-sub{font-size:16px;color:#666;max-width:600px;margin:0 auto;line-height:1.65;text-wrap:pretty}
+
+/* FOOTER, the same on every page */
+footer{background:#1a1a1a;color:#fff;padding:40px 24px 24px}
+.ft-rainbow{height:5px;background:linear-gradient(to right,#ef4444,#f59e0b,#22c55e,#3b82f6,#a855f7);border-radius:99px;margin-bottom:30px}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.ft-row img{height:54px;width:auto;filter:brightness(0) invert(1);display:block}
+footer p{font-size:13px;color:rgba(255,255,255,.5)}
+.ft-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-top:26px}
+.ft-nav a{font-family:'Figtree',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;padding:4px 0;transition:color .2s}
+.ft-nav a:hover{color:#fff}
+.ft-div{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);text-align:center}
+.ft-div p{font-size:12px;color:rgba(255,255,255,.3)}
+.ft-credit{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:7px 13px;background:#fff;border-radius:99px;text-decoration:none;opacity:.85;transition:opacity .2s}
+.ft-credit:hover{opacity:1}
+.ft-credit:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.ft-credit span{font-family:'Figtree',sans-serif;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.45);line-height:1}
+.ft-credit img{display:block;height:21px;width:auto}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;padding:20px 20px 56px;max-width:1400px;margin:0 auto}
 .gitem{aspect-ratio:4/3;overflow:hidden;border-radius:10px;cursor:pointer;background:#ddd}
 .gitem img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
 .gitem:hover img{transform:scale(1.05)}
@@ -71,7 +118,13 @@ header a:hover{background:var(--primary);color:#fff}
 .lb-arrow:hover{background:rgba(255,255,255,.3)}
 .prev{left:12px}.next{right:12px}
 .loading{text-align:center;padding:60px;color:#888;font-size:18px}
-@media(max-width:600px){.grid{grid-template-columns:1fr 1fr;gap:5px;padding:10px}}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .page-head{padding:100px 20px 26px}
+  .ft-row{flex-direction:column;text-align:center}
+}
+@media(max-width:600px){.grid{grid-template-columns:1fr 1fr;gap:5px;padding:10px 10px 40px}}
 
 /* Floating SimplySite credit, bottom right */
 .ss-badge{position:fixed;right:18px;bottom:18px;z-index:150;display:flex;align-items:center;gap:8px;padding:7px 13px;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border:1px solid rgba(26,26,26,.07);border-radius:99px;box-shadow:0 4px 16px rgba(0,0,0,.1);text-decoration:none;opacity:.88;transition:opacity .25s ease,transform .25s ease,box-shadow .25s ease}
@@ -91,15 +144,68 @@ header a:hover{background:var(--primary);color:#fff}
 </style>
 </head>
 <body>
-<header>
-  <img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" onclick="location.href='/'">
-  <h1>Photo Gallery</h1>
-  <a href="/">← Back to Site</a>
-</header>
+<a class="skip" href="#main">Skip to content</a>
+<div class="rainbow-bar"></div>
+<nav id="nav" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo-img-wrap"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" class="nav-logo-img"></a>
+    <div class="nav-links">
+      <a href="/#about">About</a>
+      <a href="/#activities">Activities</a>
+      <a href="/gallery" class="here" aria-current="page">Gallery</a>
+      <a href="/videos">Videos</a>
+      <a href="/music">Music</a>
+      <a href="/see-the-good">STG</a>
+      <a href="/#contact">Contact</a>
+    </div>
+    <div class="hamburger-wrap"><button class="hamburger" id="hamb" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobMenu"><span></span><span></span><span></span></button></div>
+  </div>
+</nav>
 
-<main>
+<div class="mobile-menu" id="mobMenu">
+  <a href="/#about">About</a>
+  <a href="/#activities">Activities</a>
+  <a href="/gallery" class="here" aria-current="page">Gallery</a>
+  <a href="/videos">Videos</a>
+  <a href="/music">Music</a>
+  <a href="/see-the-good">STG</a>
+  <a href="/#contact">Contact</a>
+</div>
+
+<main id="main">
+<div class="page-head">
+  <span class="sec-label">See the Action!</span>
+  <h1 class="page-title">Camp Landau Photo Gallery 📸</h1>
+  <p class="page-sub">What the Gishmak in Camp Landau looks like. Tap any photo to see it big.</p>
+</div>
 <div class="grid" id="grid"><div class="loading">Loading photos...</div></div>
 </main>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-rainbow"></div>
+    <div class="ft-row">
+      <a href="/"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" loading="lazy"></a>
+      <p>Sha'alei Torah, Nachal Sorek 16, Beit Shemesh</p>
+      <p>Rabbi Landau: 02-999-6341  |  Mordy: 058-675-8475</p>
+    </div>
+    <div class="ft-nav" role="navigation" aria-label="Site pages">
+      <a href="/">Home</a>
+      <a href="/gallery">Photo Gallery</a>
+      <a href="/videos">Videos</a>
+      <a href="/music">Music</a>
+      <a href="/see-the-good">See the Good</a>
+      <a href="/#contact">Contact</a>
+    </div>
+    <div class="ft-div">
+      <p>&copy; 2026 Camp Landau. All rights reserved.</p>
+      <a href="https://simplysite.me" target="_blank" rel="noopener noreferrer" class="ft-credit">
+        <span>Built by</span>
+        <img src="/img/simplysite.webp" width="286" height="72" alt="SimplySite" loading="lazy">
+      </a>
+    </div>
+  </div>
+</footer>
 
 <div class="lightbox" id="lb" onclick="closeLb()">
   <button class="lb-close" onclick="closeLb()" aria-label="Close">✕</button>
@@ -110,6 +216,18 @@ header a:hover{background:var(--primary);color:#fff}
 
 <script src="/gallery-photos.js"></script>
 <script>
+// Nav
+const hamb=document.getElementById('hamb');
+const mobMenu=document.getElementById('mobMenu');
+function closeMenu(){hamb.classList.remove('open');mobMenu.classList.remove('open');hamb.setAttribute('aria-expanded','false')}
+hamb.addEventListener('click',e=>{
+  e.stopPropagation();
+  const open=mobMenu.classList.toggle('open');
+  hamb.classList.toggle('open',open);
+  hamb.setAttribute('aria-expanded',open);
+});
+document.addEventListener('click',e=>{if(!e.target.closest('#mobMenu')&&!e.target.closest('#hamb'))closeMenu()});
+
 
 let lbUrls=[];
 let lbIdx=0;

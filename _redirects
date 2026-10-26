@@ -1,0 +1,7 @@
+# Cloudflare reads this file and applies the redirects; it is not served.
+# Old addresses that may still be bookmarked, shared or in Google, sent for good
+# (301) to the page that replaced them.
+/clips       /videos        301
+/clips.html  /videos        301
+/stg         /see-the-good  301
+/stg.html    /see-the-good  301

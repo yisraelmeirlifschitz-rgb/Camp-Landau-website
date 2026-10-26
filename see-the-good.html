@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>STG - See the Good in Every Yid</title>
-<meta name="description" content="STG, See the Good, is Camp Landau's daily Dan L'chaf Zechus program in Beit Shemesh. Watch a clip that looks bad, judge the yid favorably, then see what was really going on. New episode every day of camp.">
+<title>STG, See the Good in Every Yid | Camp Landau</title>
+<meta name="description" content="STG, See the Good: Camp Landau's daily Dan L'chaf Zechus program. Watch a clip that looks bad, judge the yid favorably, then see what really happened.">
 <link rel="canonical" href="https://camp-landau.com/see-the-good">
 <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1,max-snippet:-1">
 <meta name="author" content="Camp Landau">
-<link rel="icon" type="image/png" sizes="192x192" href="/Favicon.png">
-<link rel="shortcut icon" href="/Favicon.png">
-<link rel="apple-touch-icon" href="/Favicon.png">
-<meta property="og:title" content="STG - See the Good in Every Yid">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="512x512" href="/Favicon.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/Favicon.png">
+<meta property="og:title" content="STG, See the Good in Every Yid | Camp Landau">
 <meta property="og:description" content="Every day we watch a clip that looks bad, are Dan L'chaf Zechus, then see what was really going on.">
 <meta property="og:image" content="https://camp-landau.com/stg-og.jpg">
 <meta property="og:image:width" content="1200">
@@ -20,8 +20,9 @@
 <meta property="og:url" content="https://camp-landau.com/see-the-good">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Camp Landau">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="STG - See the Good in Every Yid">
+<meta name="twitter:title" content="STG, See the Good in Every Yid | Camp Landau">
 <meta name="twitter:description" content="Every day we watch a clip that looks bad, are Dan L'chaf Zechus, then see what was really going on.">
 <meta name="twitter:image" content="https://camp-landau.com/stg-og.jpg">
 <meta name="twitter:image:alt" content="Camp Landau, See the Good">
@@ -318,7 +319,7 @@ footer{background:#1a1a1a;color:#fff;padding:40px 24px 24px}
 .ft-inner{max-width:1100px;margin:0 auto}
 .ft-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer p{font-size:13px;color:rgba(255,255,255,.5)}
-.ft-div{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);text-align:center}
+.ft-div{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);text-align:center}
 .ft-div p{font-size:12px;color:rgba(255,255,255,.3)}
 
 @media(max-width:900px){
@@ -339,6 +340,14 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 .ft-credit span{font-family:'Figtree',sans-serif;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.45);line-height:1}
 .ft-credit img{display:block;height:21px;width:auto}
 
+.skip{position:absolute;left:-9999px;top:12px;z-index:300;background:#fff;color:#1a1a1a;padding:10px 16px;border-radius:10px;font-family:'Figtree',sans-serif;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.skip:focus{left:12px}
+.ft-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-top:26px}
+.ft-nav a{font-family:'Figtree',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;padding:4px 0;transition:color .2s}
+.ft-nav a:hover{color:#fff}
+.ft-row img{height:54px;width:auto;filter:brightness(0) invert(1);display:block}
+.mobile-menu a.here{color:var(--primary)}
+
 /* Floating SimplySite credit, bottom right */
 .ss-badge{position:fixed;right:18px;bottom:18px;z-index:150;display:flex;align-items:center;gap:8px;padding:7px 13px;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border:1px solid rgba(26,26,26,.07);border-radius:99px;box-shadow:0 4px 16px rgba(0,0,0,.1);text-decoration:none;opacity:.88;transition:opacity .25s ease,transform .25s ease,box-shadow .25s ease}
 .ss-badge:hover{opacity:1;transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.16)}
@@ -358,33 +367,34 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 </head>
 <body>
 
-<nav id="nav">
+<a class="skip" href="#main">Skip to content</a>
+<nav id="nav" aria-label="Main">
   <div class="nav-inner">
-    <div class="nav-logo-img-wrap"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" class="nav-logo-img" id="navLogo"></div>
+    <a href="/" class="nav-logo-img-wrap"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" class="nav-logo-img"></a>
     <div class="nav-links">
       <a href="/#about">About</a>
       <a href="/#activities">Activities</a>
-      <a href="/#gallery">Gallery</a>
-      <a href="/#videos">Videos</a>
-      <a href="/#music">Music</a>
-      <a href="/see-the-good" class="here">STG</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/videos">Videos</a>
+      <a href="/music">Music</a>
+      <a href="/see-the-good" class="here" aria-current="page">STG</a>
       <a href="/#contact">Contact</a>
     </div>
-    <div class="hamburger-wrap"><button class="hamburger" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button></div>
+    <div class="hamburger-wrap"><button class="hamburger" id="hamb" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobMenu"><span></span><span></span><span></span></button></div>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobMenu">
   <a href="/#about">About</a>
   <a href="/#activities">Activities</a>
-  <a href="/#gallery">Gallery</a>
-  <a href="/#videos">Videos</a>
-  <a href="/#music">Music</a>
-  <a href="/see-the-good">STG</a>
+  <a href="/gallery">Gallery</a>
+  <a href="/videos">Videos</a>
+  <a href="/music">Music</a>
+  <a href="/see-the-good" class="here" aria-current="page">STG</a>
   <a href="/#contact">Contact</a>
 </div>
 
-<main>
+<main id="main">
 <div class="stg-hero">
   <div class="rainbow-bar"></div>
   <h1 class="stg-h1">
@@ -635,9 +645,17 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   <div class="ft-inner">
     <div class="ft-rainbow"></div>
     <div class="ft-row">
-      <img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" loading="lazy" style="height:54px;width:auto;filter:brightness(0) invert(1);cursor:pointer" onclick="location.href='/'">
+      <a href="/"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" loading="lazy"></a>
       <p>Sha'alei Torah, Nachal Sorek 16, Beit Shemesh</p>
       <p>Rabbi Landau: 02-999-6341  |  Mordy: 058-675-8475</p>
+    </div>
+    <div class="ft-nav" role="navigation" aria-label="Site pages">
+      <a href="/">Home</a>
+      <a href="/gallery">Photo Gallery</a>
+      <a href="/videos">Videos</a>
+      <a href="/music">Music</a>
+      <a href="/see-the-good">See the Good</a>
+      <a href="/#contact">Contact</a>
     </div>
     <div class="ft-div">
       <p>&copy; 2026 Camp Landau. All rights reserved.</p>
@@ -654,16 +672,16 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 // Nav
 const hamb=document.getElementById('hamb');
 const mobMenu=document.getElementById('mobMenu');
-function closeMenu(){hamb.classList.remove('open');mobMenu.classList.remove('open')}
+function closeMenu(){hamb.classList.remove('open');mobMenu.classList.remove('open');hamb.setAttribute('aria-expanded','false')}
 hamb.addEventListener('click',e=>{
   e.stopPropagation();
-  hamb.classList.toggle('open');
-  mobMenu.classList.toggle('open');
+  const open=mobMenu.classList.toggle('open');
+  hamb.classList.toggle('open',open);
+  hamb.setAttribute('aria-expanded',open);
 });
 document.addEventListener('click',e=>{
   if(!e.target.closest('#mobMenu')&&!e.target.closest('#hamb')){closeMenu()}
 });
-document.getElementById('navLogo').addEventListener('click',()=>{location.href='/'});
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 },{passive:true});

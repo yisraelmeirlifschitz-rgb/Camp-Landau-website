@@ -14,10 +14,11 @@ Only state facts listed here (or newly given by the client). Everything below is
 - **Mordy Landau** ("Papa Mo"): 058-675-8475
 - **Email:** Camp@Camp-Landau.com
 - **Activities:** sports, swimming, trips, Ruach, games, Color War, shtick, special surprises
-- **Summer 2026:** daily clips run Sunday July 26 to Friday August 7
+- **Summer 2026:** camp days ran Sunday July 26 to Friday August 7
 - **Summer 2027:** camp is back Sunday August 15, 2027 at 9:00 (the home countdown target, confirmed by the client)
 - **Music:** original camp songs on Spotify (artist 5GvoGwRrTwcms4Vo4EOi9o) and 24six (artist 2650)
-- **YouTube:** @camplandau9410
+- **YouTube:** @camplandauRBS (channel UCSWhIE838GQKOFuzxCQY_uQ). The old link, @camplandau9410, is dead (404), so don't use it.
+- **Other YouTube channels with camp videos:** @STG-landau (See the Good), and the videographer Aryeh Rothenberg's @aryehrothenberg6554 (Highlights 2025, Color War 2025, 25 Years of Camp Landau song). "Camp Landau - Topic" (UCqwyAmEKgm2smBQ2U0_59Xg) is YouTube's auto-made music channel.
 - **STG, See the Good:** daily Dan L'chaf Zechus video program, 7 episodes (August 2026)
 
 ### Settled with the client
@@ -32,7 +33,9 @@ The site is meant to feel **fun and kid-like**, not corporate. Bright colors, em
 
 - Plain HTML pages, CSS and JS inline per page. No build step.
 - Hosted on **Cloudflare Workers static assets** (`wrangler.jsonc`, assets directory is the repo root). Pushing to `main` deploys automatically.
-- Clean URLs: `/gallery`, `/clips`, `/see-the-good` (Cloudflare drops `.html`; linking to `gallery.html` costs a redirect).
+- Clean URLs: `/gallery`, `/videos`, `/music`, `/see-the-good` (Cloudflare drops `.html`; linking to `gallery.html` costs a redirect).
+- `_redirects`: old addresses sent for good (301) to their replacement. `/clips` goes to `/videos`, `/stg` to `/see-the-good`. Cloudflare reads it; it is not served.
+- `404.html` is the not-found page (`"not_found_handling": "404-page"` in `wrangler.jsonc`), with a real 404 status and links to every page. It is `noindex`.
 - `.assetsignore` lists repo files that must not be served (`.git`, `wrangler.jsonc`, this file).
 - `_headers`: one-week cache on `/img/*` and `/audio/*`, plus basic security headers on everything.
 - Local preview with Cloudflare's real routing: `npx wrangler@4 dev`.
@@ -42,7 +45,8 @@ The site is meant to feel **fun and kid-like**, not corporate. Bright colors, em
 All images are self-hosted under `/img` as WebP sized for display. No page loads images from Google Photos, base44 or raw.githubusercontent.com any more (they were slow, and 33 Google Photos links had died).
 
 - `img/logo.webp` (hero), `img/logo-sm.webp` (nav, footer), `img/hero-*.webp` (portrait crop for phones, landscape for wide screens), `img/about.webp`, `img/24six.webp`, `img/spotify.webp`, `img/stg-*.webp`, `img/simplysite.webp`.
-- `og.jpg` (1200x630, under 200KB so WhatsApp shows it) is the share image for home, gallery and clips. See the Good keeps `stg-og.jpg`.
+- `img/videos/<youtube id>.webp` (960x540) and `<id>-sm.webp` (480x270): video thumbnails, made from YouTube's own. Black bars are trimmed, and square art (a logo or drawing) sits whole on a black 16:9 field.
+- `og.jpg` (1200x630, under 200KB so WhatsApp shows it) is the share image for home, gallery, videos and music. See the Good keeps `stg-og.jpg`.
 
 ### Gallery
 - The list lives in **`gallery-photos.js`**, shared by the home page (first 12) and `/gallery` (all). Newest first.
@@ -57,6 +61,27 @@ All images are self-hosted under `/img` as WebP sized for display. No page loads
 - `stg-0N-poster.jpg`: referenced as `thumbnailUrl` in See the Good's VideoObject data, already indexed by Google. Pages display the WebP copies.
 - `spotify-icon.png`, `stg-logo.png`: originals of the WebP versions.
 
+## Pages and menu
+
+| Page | What's on it |
+|---|---|
+| `/` | About, activities, 12 photos, 3 videos, music, contact |
+| `/gallery` | every photo |
+| `/videos` | every Camp Landau video: highlights by year, Color War, song videos, a link to See the Good |
+| `/music` | the camp songs player, Spotify, 24six, the music videos |
+| `/see-the-good` | the 7 STG episodes and the theme song |
+
+- **Menu rule:** anything with its own page links to that page (Gallery, Videos, Music, STG). About, Activities and Contact only live on the home page, so they link to `/#about` and so on. The current page is marked `class="here" aria-current="page"`.
+- Every page has the same menu, the same phone menu and the same footer, with a row linking every page. There is no build step, so **a menu change means editing all six HTML files** (404 included).
+- The home sections for photos, videos and music each end in a button to their page ("View More Photos", "More Videos", "More Music"). These are real links, so Google follows them.
+- `/clips` (the Summer 2026 daily clips on Google Drive) was removed at the client's request; its address redirects to `/videos`.
+
+### Adding a video
+1. Make the two thumbnails in `img/videos` (see Images).
+2. Add a card to the right section of `videos.html` (copy one: the `data-yt` id, the title, the duration on the badge), and a `VideoObject` to the page's structured data with the upload date and duration from YouTube.
+3. Add a `<video:video>` entry under `/videos` in `sitemap.xml`, and bump its `lastmod`.
+4. A song video also goes on `music.html` the same way.
+
 ## Header (home page)
 
 The hero shows the big logo, so the nav's logo is hidden while the hero logo is on screen (`nav.at-hero`, toggled by an IntersectionObserver on `.hero-logo` with a -68px top margin). It fades in once the hero logo has slid under the 68px nav bar, so the two logos never show together. A deep link into the page shows it straight away. While the phone menu is open, the nav takes its white scrolled look and shows its logo (`nav:has(.hamburger.open)`), so header and menu read as one panel. On phones the logo in the white bar is 46px. The other pages have no big hero logo and keep the nav logo throughout.
@@ -66,27 +91,28 @@ The hero shows the big logo, so the nav's logo is hidden while the hero logo is 
 | Service | Where | Why |
 |---|---|---|
 | Google Fonts (Figtree, Inter) | all pages | type |
-| YouTube (nocookie) | home videos, See the Good via Plyr | video |
+| YouTube (nocookie) | home, `/videos`, `/music`, See the Good via Plyr | video, loaded only when a visitor taps play |
 | Plyr 3.7.8 (jsDelivr) | See the Good | custom player chrome over YouTube |
-| Spotify embed | home, music section | built only when the section nears the screen |
-| Google Drive | `/clips` players and downloads, See the Good downloads | daily clips |
-| GitHub API | home songs list | lists `/audio` so a newly uploaded song appears by itself |
+| Spotify embed | home music section, `/music` | built only when the section nears the screen |
+| Google Drive | See the Good downloads | full-quality episode files |
+| GitHub API | songs list on home and `/music` (`songs.js`) | lists `/audio` so a newly uploaded song appears by itself |
 | Cloudflare Web Analytics | injected by Cloudflare | traffic stats |
 
-**Songs:** the list comes from the GitHub contents API for `/audio`, and the files play from this site (`/audio/...`). GitHub allows 60 API calls an hour per network, so `index.html` has `SONGS_FALLBACK`. **When you add a song, add its file name there too.**
+**Songs:** the player is `songs.js`, shared by the home page and `/music`. The list comes from the GitHub contents API for `/audio`, and the files play from this site (`/audio/...`). GitHub allows 60 API calls an hour per network, so `songs.js` has `SONGS_FALLBACK`. **When you add a song, add its file name there too.** `/#songs` and `/music#songs` both land on the player.
 
 **See the Good players:** each Plyr player opens a ~1MB YouTube frame, so a player is built when its episode comes within 600px of the screen, never all seven on load.
 
 ## SEO and GEO
 
-- Structured data: home has `WebSite` plus `SummerCamp` + `LocalBusiness` (address, phones, director, audience). Gallery is `ImageGallery`, clips is `CollectionPage`, See the Good has one `VideoObject` per episode and a `BreadcrumbList`.
-- `sitemap.xml` uses clean URLs, lists every gallery photo as an image entry (the gallery is built by script), and lists the 7 See the Good episodes as video entries built from the page's VideoObject data. When an episode or photo is added, add it to the sitemap too and bump that page's `lastmod`. Submit `https://camp-landau.com/sitemap.xml` in Google Search Console (the site is already verified there).
+- Structured data: home has `WebSite` plus `SummerCamp` + `LocalBusiness` (address, phones, director, audience). Gallery is `ImageGallery`; videos is a `CollectionPage` and music a `WebPage`, each with one `VideoObject` per video; See the Good has one `VideoObject` per episode. Every page but home has a `BreadcrumbList` (Camp Landau > page).
+- `sitemap.xml` uses clean URLs, lists every gallery photo as an image entry (the gallery is built by script), and lists every video on `/videos`, `/music` and `/see-the-good` as video entries built from each page's VideoObject data. When an episode, video or photo is added, add it to the sitemap too and bump that page's `lastmod`. Submit `https://camp-landau.com/sitemap.xml` in Google Search Console (the site is already verified there).
+- **Sitelinks** (the menu of pages Google can show under the home result) are chosen by Google and can't be switched on. What helps, and is in place: one short, distinct title per page, the same menu and footer links on every page, breadcrumbs, a sitemap with every page, and no orphan pages. After a change to the pages, use URL Inspection in Search Console to request indexing of each new page.
 - `llms.txt` summarizes the camp for AI answer engines. Keep it in step with the Source of Truth.
 - `robots.txt` allows everyone. **Cloudflare's AI Crawl Control** still returns 403 to AI *training* crawlers (GPTBot, ClaudeBot, CCBot). Search and answer bots (Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot, PerplexityBot, Applebot) get through. The client is turning this on in the Cloudflare dashboard.
-- Every page has one `h1`, a `main` landmark, canonical, description and share tags.
+- Every page has one `h1`, a `main` landmark with a skip link to it, canonical, description and share tags. The 404 page is `noindex` and has no canonical.
 
 ## Known issues
 
-- `/clips` is still heavy (about 7MB on a phone) because Google Drive's player is heavy. The real fix is hosting the daily clips on YouTube like See the Good.
+- **`http://camp-landau.com` serves the site instead of redirecting to `https://`.** Turn on Always Use HTTPS in the Cloudflare dashboard (SSL/TLS > Edge Certificates). The canonicals already point at https, so this is tidy-up, not an emergency.
+- **`www.camp-landau.com` doesn't resolve.** Anyone typing www gets an error. Add a `www` DNS record in Cloudflare and a redirect rule to `https://camp-landau.com`.
 - At 360px the home page measures 2px wide because the music cards slide in from the side. The body's `overflow-x:hidden` clips it, so nothing scrolls.
-- See the Good's meta description is about 200 characters, so Google shows it cut.
