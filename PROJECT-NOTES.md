@@ -15,13 +15,14 @@ Only state facts listed here (or newly given by the client). Everything below is
 - **Email:** Camp@Camp-Landau.com
 - **Activities:** sports, swimming, trips, Ruach, games, Color War, shtick, special surprises
 - **Summer 2026:** daily clips run Sunday July 26 to Friday August 7
+- **Summer 2027:** camp is back Sunday August 15, 2027 at 9:00 (the home countdown target, confirmed by the client)
 - **Music:** original camp songs on Spotify (artist 5GvoGwRrTwcms4Vo4EOi9o) and 24six (artist 2650)
 - **YouTube:** @camplandau9410
 - **STG, See the Good:** daily Dan L'chaf Zechus video program, 7 episodes (August 2026)
 
-### Open questions for the client
-- The home countdown targets **2027-08-15 09:00**. Summer 2026 started July 26. Is August 15 the real 2027 start date?
-- Activities card says "There will be no Color War this year." Which year does that mean? It reads as current to every visitor.
+### Settled with the client
+- The countdown date (2027-08-15 09:00) is correct.
+- "There will be no Color War this year" on the Color War card is a **deliberate running joke**, kept every year. Don't remove or "fix" it, and don't repeat it as a fact anywhere (llms.txt lists Color War as an activity).
 
 ## Direction
 
@@ -46,7 +47,7 @@ All images are self-hosted under `/img` as WebP sized for display. No page loads
 ### Gallery
 - The list lives in **`gallery-photos.js`**, shared by the home page (first 12) and `/gallery` (all). Newest first.
 - Each id has `img/gallery/<id>-t.webp` (600x450 thumbnail) and `img/gallery/<id>.webp` (full, max 1400px).
-- **Adding a photo:** download it, make the thumbnail as a 4:3 crop placed a third of the way down (faces survive better than a centered crop), WebP quality ~68; make the full size at 1400px max, quality ~76; name both with any unique 10-character id; add the id at the top of `gallery-photos.js`.
+- **Adding a photo:** download it, make the thumbnail as a 4:3 crop placed a third of the way down (faces survive better than a centered crop), WebP quality ~68; make the full size at 1400px max, quality ~76; name both with any unique 10-character id; add the id at the top of `gallery-photos.js`, and add an `<image:image>` line for the full-size file under `/gallery` in `sitemap.xml`.
 - Existing ids are the first 10 hex characters of the SHA-1 of the photo's old Google Photos URL. 33 exact duplicates were dropped when the gallery moved here.
 - A photo that fails to load is removed from the grid and the lightbox, so it never leaves a hole.
 
@@ -55,6 +56,10 @@ All images are self-hosted under `/img` as WebP sized for display. No page loads
 - `camp-landau-low-logo.jpg`: the old share image. Social platforms may still have it cached.
 - `stg-0N-poster.jpg`: referenced as `thumbnailUrl` in See the Good's VideoObject data, already indexed by Google. Pages display the WebP copies.
 - `spotify-icon.png`, `stg-logo.png`: originals of the WebP versions.
+
+## Header (home page)
+
+The hero shows the big logo, so the nav's logo is hidden while the hero logo is on screen (`nav.at-hero`, toggled by an IntersectionObserver on `.hero-logo` with a -68px top margin). It fades in once the hero logo has slid under the 68px nav bar, so the two logos never show together. A deep link into the page shows it straight away. While the phone menu is open, the nav takes its white scrolled look and shows its logo (`nav:has(.hamburger.open)`), so header and menu read as one panel. On phones the logo in the white bar is 46px. The other pages have no big hero logo and keep the nav logo throughout.
 
 ## Third parties
 
@@ -75,9 +80,9 @@ All images are self-hosted under `/img` as WebP sized for display. No page loads
 ## SEO and GEO
 
 - Structured data: home has `WebSite` plus `SummerCamp` + `LocalBusiness` (address, phones, director, audience). Gallery is `ImageGallery`, clips is `CollectionPage`, See the Good has one `VideoObject` per episode and a `BreadcrumbList`.
-- `sitemap.xml` uses clean URLs and lists every gallery photo as an image entry, since the gallery is built by script.
+- `sitemap.xml` uses clean URLs, lists every gallery photo as an image entry (the gallery is built by script), and lists the 7 See the Good episodes as video entries built from the page's VideoObject data. When an episode or photo is added, add it to the sitemap too and bump that page's `lastmod`. Submit `https://camp-landau.com/sitemap.xml` in Google Search Console (the site is already verified there).
 - `llms.txt` summarizes the camp for AI answer engines. Keep it in step with the Source of Truth.
-- `robots.txt` allows everyone. **Cloudflare's AI Crawl Control** still returns 403 to AI *training* crawlers (GPTBot, ClaudeBot, CCBot). Search and answer bots (Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot, PerplexityBot, Applebot) get through. Change it in the Cloudflare dashboard if the camp wants to be in model training data too.
+- `robots.txt` allows everyone. **Cloudflare's AI Crawl Control** still returns 403 to AI *training* crawlers (GPTBot, ClaudeBot, CCBot). Search and answer bots (Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot, PerplexityBot, Applebot) get through. The client is turning this on in the Cloudflare dashboard.
 - Every page has one `h1`, a `main` landmark, canonical, description and share tags.
 
 ## Known issues

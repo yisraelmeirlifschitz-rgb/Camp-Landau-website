@@ -57,12 +57,15 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hid
 .reveal.on,.reveal-l.on,.reveal-r.on{opacity:1;transform:none}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:transparent;border-bottom:4px solid transparent;box-shadow:none;transition:background .4s ease,border-color .4s ease,box-shadow .4s ease,height .4s ease}
-nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom-color:rgba(232,93,38,.3);box-shadow:0 4px 20px rgba(0,0,0,.13)}
+nav.scrolled,nav:has(.hamburger.open){background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom-color:rgba(232,93,38,.3);box-shadow:0 4px 20px rgba(0,0,0,.13)}
 .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:center;position:relative;height:90px;transition:height .4s ease}
-nav.scrolled .nav-inner{height:68px}
-.nav-logo-img{height:70px;width:auto;cursor:pointer;display:block;transition:opacity .2s,height .4s ease,filter .4s ease}
-nav.scrolled .nav-logo-img{height:52px}
+nav.scrolled .nav-inner,nav:has(.hamburger.open) .nav-inner{height:68px}
+.nav-logo-img{height:70px;width:auto;cursor:pointer;display:block;transition:opacity .35s ease,transform .35s ease,height .4s ease,filter .4s ease}
+nav.scrolled .nav-logo-img,nav:has(.hamburger.open) .nav-logo-img{height:52px}
 .nav-logo-img:hover{opacity:.8}
+/* The hero already shows the big logo, so the nav's logo waits until that one has slid under the nav */
+nav.at-hero .nav-logo-img{opacity:0;transform:translateY(-8px) scale(.92);pointer-events:none}
+nav:has(.hamburger.open) .nav-logo-img{opacity:1;transform:none;pointer-events:auto}
 .nav-logo-img-wrap{position:absolute;left:24px}.hamburger-wrap{position:absolute;right:24px}
 .nav-links{display:flex;align-items:center;gap:24px}
 .nav-links a{font-family:'Figtree',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.95);background:none;border:none;cursor:pointer;padding:4px 0;position:relative;transition:color .2s,text-shadow .4s;text-decoration:none;text-shadow:0 1px 4px rgba(0,0,0,.5)}
@@ -76,12 +79,12 @@ nav.scrolled .nav-links a{color:#1a1a1a;text-shadow:none}
 .btn-reg:hover{background:#fff;color:var(--primary);transform:scale(1.05);box-shadow:0 6px 20px rgba(232,93,38,.4)}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px;width:42px;height:42px;justify-content:center;align-items:center}
 .hamburger span{width:24px;height:2.5px;background:rgba(255,255,255,.95);border-radius:99px;transition:all .3s ease,background .4s;display:block}
-nav.scrolled .hamburger span{background:#1a1a1a}
+nav.scrolled .hamburger span,nav:has(.hamburger.open) .hamburger span{background:#1a1a1a}
 .hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .mobile-menu{display:none;position:fixed;top:90px;left:0;right:0;background:#fff;border-bottom:4px solid rgba(232,93,38,.3);z-index:199;box-shadow:0 8px 32px rgba(0,0,0,.12);padding:18px 20px;flex-direction:column;gap:0;transition:top .4s ease}
-nav.scrolled~.mobile-menu{top:68px}
+nav.scrolled~.mobile-menu,nav:has(.hamburger.open)~.mobile-menu{top:68px}
 .mobile-menu.open{display:flex;animation:slideDown .3s ease}
 .mobile-menu a{font-family:'Figtree',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;background:none;border:none;cursor:pointer;padding:14px 4px;text-align:left;border-bottom:1px solid #f3f4f6;transition:color .2s;text-decoration:none;display:block}
 .mobile-menu a:hover{color:var(--primary)}
@@ -282,6 +285,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 @media(max-width:768px){
   .nav-links{display:none}
   .hamburger{display:flex}
+  nav.scrolled .nav-logo-img,nav:has(.hamburger.open) .nav-logo-img{height:46px}
   .about-grid,.music-grid{grid-template-columns:1fr}
   .act-grid{grid-template-columns:1fr 1fr}
   .gallery-grid{grid-template-columns:1fr 1fr}
@@ -412,7 +416,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 </head>
 <body>
 
-<nav id="nav">
+<nav id="nav" class="at-hero">
   <div class="nav-inner">
     <div class="nav-logo-img-wrap"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" class="nav-logo-img" id="navLogo"></div>
     <div class="nav-links">
@@ -696,6 +700,14 @@ document.getElementById('navLogo').addEventListener('click',()=>{closeMenu();win
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 },{passive:true});
+
+// Hand the logo from the hero to the nav: the nav one shows only once the big
+// hero logo has scrolled up under the 68px nav bar, so the two never show together
+(function(){
+  const nav=document.getElementById('nav'), heroLogo=document.querySelector('.hero-logo');
+  if(!heroLogo){nav.classList.remove('at-hero');return;}
+  new IntersectionObserver(([e])=>nav.classList.toggle('at-hero',e.isIntersecting),{rootMargin:'-68px 0px 0px 0px'}).observe(heroLogo);
+})();
 
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
