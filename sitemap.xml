@@ -1,27 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://camp-landau.com/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://camp-landau.com/img/hero-1920.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/about.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://camp-landau.com/see-the-good</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://camp-landau.com/gallery.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <loc>https://camp-landau.com/gallery</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/c668b5c1fe.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/157641539b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/01897b038b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/6f8900f299.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/d315334b68.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/7fca513e1b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/5008e6cdd1.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/6a1bd906bc.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/b2f52032bc.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/59c76707c5.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/e9083a8116.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/7687cd55aa.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/89b8b254c1.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/3dbc31a2d6.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/86f700eaee.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/ba72e8aaad.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/0bc06b64c6.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/c3961c23ac.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/66e156118a.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/141470ef7e.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/73ae4766df.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/ced2ea4bf8.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/be8902f00c.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/6d92466639.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/f3b447327a.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/6758e06d56.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/e22169918a.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/c5e47a2c06.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/363558a09b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/62ed074ef3.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/f191a8060d.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/ff2ecb9975.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/3c3b558c57.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/97cd872724.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/6748257e4d.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/66273da3c2.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/05083f05d3.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/81a36cdc04.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/0290a91f47.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/842b887054.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/5b108c1dac.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/bb6ca79662.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/7b2bf31aaf.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/c8de016427.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/e29c142b3f.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/c40f6b242f.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/4cc706e2bc.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/85ce59c7a5.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/4e8435f219.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/061cea6624.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/d41dc5418b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/7529c5b721.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/559d0828c5.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/4e60d5c82f.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/9e3475de4d.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/eceb7da43c.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/b50815200d.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/ec979a82f7.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/b3e861a527.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/b39fcfe756.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/4542f06886.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/6e7d77ff4a.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/f4d8cee76a.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/f0d9a6c27e.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/53b8cf8d7b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/f2556db89e.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/f4bffb9f43.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/6ef2e850b0.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/5816351703.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/92375f69c4.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/583942ff4c.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/8e069bfe6e.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/6880202710.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/9603b07e5b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/7acd788d18.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/5c0079c9d5.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/7253554376.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/91fff35f14.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/cbe0abc2d0.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/c5ce9cf5da.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/ed5261fb66.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/2dd6eb3d96.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/cf3234c928.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/a7ff7ae1a9.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/7fe6b3278b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/813dd4c1bf.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/8f240bc388.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/20418e59c6.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/537aca89f2.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/80a268f2bd.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/84d70b569b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/9f653f9224.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/e4cd7507e2.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/e57c439cd5.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/7e2bcf963a.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/1bf017d18f.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/27f2f47e51.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/eb4471051b.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/65fccb12ce.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/da0c0e5dbf.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/d9c191a182.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/4266df29d2.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/e83ae2de3f.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/50ba21ab06.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/d19a7abcaa.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/fbc4e92834.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/1704effa33.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/022d2c62b2.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/eb6ce4b54e.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/ca78f9c3ff.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/b141ad439c.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/f462b31bcb.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/f8ea8ab589.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/e6dfb977b5.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/ffcba5ee49.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/6cc356f04d.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/0eee95690d.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/90e4ee5bb4.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/ff2bc32e96.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/2924f11e3f.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/794b85d2a9.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/8e3c3f3839.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/bd49f9eb50.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/c7ff250c1a.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/7f56584671.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/cad49373a0.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/4b906ed526.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/0ab0bd2520.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/68880cd517.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/a4314fc5a7.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/bdf4b8c6b9.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/346ab57b57.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/59e8c480b5.webp</image:loc></image:image>
+    <image:image><image:loc>https://camp-landau.com/img/gallery/624898809f.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://camp-landau.com/clips</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 </urlset>

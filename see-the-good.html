@@ -43,7 +43,7 @@
       "@type": "Organization",
       "name": "Camp Landau",
       "url": "https://camp-landau.com/",
-      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/Favicon.png", "width": 512, "height": 512}
     }
   },
   {
@@ -62,7 +62,7 @@
       "@type": "Organization",
       "name": "Camp Landau",
       "url": "https://camp-landau.com/",
-      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/Favicon.png", "width": 512, "height": 512}
     }
   },
   {
@@ -81,7 +81,7 @@
       "@type": "Organization",
       "name": "Camp Landau",
       "url": "https://camp-landau.com/",
-      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/Favicon.png", "width": 512, "height": 512}
     }
   },
   {
@@ -100,7 +100,7 @@
       "@type": "Organization",
       "name": "Camp Landau",
       "url": "https://camp-landau.com/",
-      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/Favicon.png", "width": 512, "height": 512}
     }
   },
   {
@@ -119,7 +119,7 @@
       "@type": "Organization",
       "name": "Camp Landau",
       "url": "https://camp-landau.com/",
-      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/Favicon.png", "width": 512, "height": 512}
     }
   },
   {
@@ -138,7 +138,7 @@
       "@type": "Organization",
       "name": "Camp Landau",
       "url": "https://camp-landau.com/",
-      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/Favicon.png", "width": 512, "height": 512}
     }
   },
   {
@@ -158,7 +158,7 @@
       "@type": "Organization",
       "name": "Camp Landau",
       "url": "https://camp-landau.com/",
-      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/stg-og.jpg"}
+      "logo": {"@type": "ImageObject", "url": "https://camp-landau.com/Favicon.png", "width": 512, "height": 512}
     }
   }
 ]
@@ -174,6 +174,7 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.min.css">
 <style>
@@ -261,6 +262,7 @@ section{padding:80px 24px}
 .vshell .plyr__poster{background-size:cover}
 .vcover{position:absolute;inset:0;cursor:pointer;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
 .vcover::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(1,26,80,.32) 0%,rgba(1,26,80,.5) 100%)}
+.vcover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .vcover.gone{display:none}
 .play-btn{position:relative;z-index:2;width:82px;height:82px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .25s,background .25s}
 .vcover:hover .play-btn{transform:scale(1.1);background:var(--pd)}
@@ -330,6 +332,13 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   .sec-sub{margin-bottom:36px}
 }
 
+/* SimplySite credit in the footer, the same chip the floating badge lands as */
+.ft-credit{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:7px 13px;background:#fff;border-radius:99px;text-decoration:none;opacity:.85;transition:opacity .2s}
+.ft-credit:hover{opacity:1}
+.ft-credit:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.ft-credit span{font-family:'Figtree',sans-serif;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.45);line-height:1}
+.ft-credit img{display:block;height:21px;width:auto}
+
 /* Floating SimplySite credit, bottom right */
 .ss-badge{position:fixed;right:18px;bottom:18px;z-index:150;display:flex;align-items:center;gap:8px;padding:7px 13px;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border:1px solid rgba(26,26,26,.07);border-radius:99px;box-shadow:0 4px 16px rgba(0,0,0,.1);text-decoration:none;opacity:.88;transition:opacity .25s ease,transform .25s ease,box-shadow .25s ease}
 .ss-badge:hover{opacity:1;transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.16)}
@@ -351,7 +360,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
 <nav id="nav">
   <div class="nav-inner">
-    <div class="nav-logo-img-wrap"><img src="https://media.base44.com/images/public/6a02dcbe52ad46f953869a81/ee451fe8d_Untitleddesign5.png" alt="Camp Landau" class="nav-logo-img" id="navLogo"></div>
+    <div class="nav-logo-img-wrap"><img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" class="nav-logo-img" id="navLogo"></div>
     <div class="nav-links">
       <a href="/#about">About</a>
       <a href="/#activities">Activities</a>
@@ -375,10 +384,11 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   <a href="/#contact">Contact</a>
 </div>
 
+<main>
 <div class="stg-hero">
   <div class="rainbow-bar"></div>
   <h1 class="stg-h1">
-    <img src="stg-logo.png" alt="" class="stg-logo">
+    <img src="/img/stg-logo.webp" width="800" height="708" alt="" class="stg-logo" fetchpriority="high">
     <span class="vh">STG, See the Good in Every Yid, at Camp Landau</span>
   </h1>
   <p class="stg-tagline">Dan L'chaf Zechus</p>
@@ -425,7 +435,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
       <div class="vshell">
         <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="tMYzx4zAQ1w"></div>
-        <div class="vcover" style="background-image:url('stg-07-poster.jpg')">
+        <div class="vcover"><img src="/img/stg-07.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
           <div class="play-btn"></div>
         </div>
       </div>
@@ -449,7 +459,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
       <div class="vshell">
         <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="HLlZE6N9p0s"></div>
-        <div class="vcover" style="background-image:url('stg-06-poster.jpg')">
+        <div class="vcover"><img src="/img/stg-06.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
           <div class="play-btn"></div>
         </div>
       </div>
@@ -473,7 +483,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
       <div class="vshell">
         <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="2awFKz7DYY0"></div>
-        <div class="vcover" style="background-image:url('stg-05-poster.jpg')">
+        <div class="vcover"><img src="/img/stg-05.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
           <div class="play-btn"></div>
         </div>
       </div>
@@ -497,7 +507,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
       <div class="vshell">
         <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="H9I2KTyoZqo"></div>
-        <div class="vcover" style="background-image:url('stg-04-poster.jpg')">
+        <div class="vcover"><img src="/img/stg-04.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
           <div class="play-btn"></div>
         </div>
       </div>
@@ -521,7 +531,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
       <div class="vshell">
         <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="4Bm_3lQVK7Q"></div>
-        <div class="vcover" style="background-image:url('stg-03-poster.jpg')">
+        <div class="vcover"><img src="/img/stg-03.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
           <div class="play-btn"></div>
         </div>
       </div>
@@ -545,7 +555,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
       <div class="vshell">
         <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="ZSKJekRvpDU"></div>
-        <div class="vcover" style="background-image:url('stg-02-poster.jpg')">
+        <div class="vcover"><img src="/img/stg-02.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
           <div class="play-btn"></div>
         </div>
       </div>
@@ -569,7 +579,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 
       <div class="vshell">
         <div class="stg-player" data-plyr-provider="youtube" data-plyr-embed-id="q-MkUmqLmRY"></div>
-        <div class="vcover" style="background-image:url('stg-01-poster.jpg')">
+        <div class="vcover"><img src="/img/stg-01.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
           <div class="play-btn"></div>
         </div>
       </div>
@@ -618,21 +628,22 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     </div>
   </div>
 </section>
+</main>
 
 
 <footer>
   <div class="ft-inner">
     <div class="ft-rainbow"></div>
     <div class="ft-row">
-      <img src="https://media.base44.com/images/public/6a02dcbe52ad46f953869a81/ee451fe8d_Untitleddesign5.png" alt="Camp Landau" style="height:54px;filter:brightness(0) invert(1);cursor:pointer" onclick="location.href='/'">
+      <img src="/img/logo-sm.webp" width="211" height="140" alt="Camp Landau" loading="lazy" style="height:54px;width:auto;filter:brightness(0) invert(1);cursor:pointer" onclick="location.href='/'">
       <p>Sha'alei Torah, Nachal Sorek 16, Beit Shemesh</p>
       <p>Rabbi Landau: 02-999-6341  |  Mordy: 058-675-8475</p>
     </div>
     <div class="ft-div">
       <p>&copy; 2026 Camp Landau. All rights reserved.</p>
-      <a href="https://simplysite.me" target="_blank" rel="noopener" style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;margin-top:4px;text-decoration:none;opacity:.75;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.75'">
-        <span style="font-size:12px;color:rgba(255,255,255,.5);font-family:'Figtree',sans-serif;letter-spacing:.05em;line-height:1;display:block">Built by</span>
-        <img src="https://raw.githubusercontent.com/yisraelmeirlifschitz-rgb/Camp-Landau-website/main/SimplySite.png" alt="Simply Site, website design and landing pages" style="height:148px;filter:brightness(0) invert(1)">
+      <a href="https://simplysite.me" target="_blank" rel="noopener noreferrer" class="ft-credit">
+        <span>Built by</span>
+        <img src="/img/simplysite.webp" width="286" height="72" alt="SimplySite" loading="lazy">
       </a>
     </div>
   </div>
@@ -711,14 +722,23 @@ function jumpToEpisode(){
   window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-118,behavior:'instant'});
 }
 
-// Video, one player per episode
+// Video, one player per episode. Each Plyr player opens a YouTube frame of about
+// 1MB, so a player is built as its episode comes near the screen rather than all
+// seven on load. Built ahead of the visitor, the cover still plays in one tap.
 const players=[];
+const buildObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){buildObs.unobserve(e.target);e.target._build();}});
+},{rootMargin:'600px 0px'});
+
 document.querySelectorAll('.ep').forEach(ep=>{
   const mount=ep.querySelector('.stg-player');
   const cover=ep.querySelector('.vcover');
   if(!mount||!cover)return;
+  let player=null;
 
-  const player=new Plyr(mount,{
+  function build(){
+    if(player)return player;
+    player=new Plyr(mount,{
     controls:['play','progress','current-time','mute','volume','fullscreen'],
     settings:[],
     captions:{active:false,update:false},
@@ -726,26 +746,37 @@ document.querySelectorAll('.ep').forEach(ep=>{
     autoplay:false,
     hideControls:true,
     youtube:{noCookie:true,rel:0,modestbranding:1,iv_load_policy:3,showinfo:0,playsinline:1,cc_load_policy:0,disablekb:1}
-  });
-  players.push(player);
+    });
+    players.push(player);
+
+    // Back to the poster on finish, so YouTube's end screen never appears
+    player.on('ended',()=>{
+      player.stop();
+      cover.classList.remove('gone');
+    });
+
+    // Players size themselves after load and push the page down, which lands a
+    // hash jump short. Re-aim as each one settles.
+    player.on('ready',()=>{if(/^#\d+$/.test(location.hash))jumpToEpisode();});
+    return player;
+  }
+  ep._build=build;
+  buildObs.observe(ep);
 
   // Our own cover starts playback, so YouTube chrome is never visible up front
-  cover.addEventListener('click',()=>{
-    players.forEach(o=>{if(o!==player)o.pause()});
+  const epNum=ep.id;
+  cover.setAttribute('role','button');
+  cover.tabIndex=0;
+  cover.setAttribute('aria-label','Play episode '+epNum);
+  function start(){
+    const p=build();
+    players.forEach(o=>{if(o!==p)o.pause()});
     if(typeof stopSong==='function')stopSong();
     cover.classList.add('gone');
-    player.play();
-  });
-
-  // Back to the poster on finish, so YouTube's end screen never appears
-  player.on('ended',()=>{
-    player.stop();
-    cover.classList.remove('gone');
-  });
-
-  // Players size themselves after load and push the page down, which lands a
-  // hash jump short. Re-aim as each one settles.
-  player.on('ready',()=>{if(/^#\d+$/.test(location.hash))jumpToEpisode();});
+    if(p.ready)p.play();else p.once('ready',()=>p.play());
+  }
+  cover.addEventListener('click',start);
+  cover.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();start();}});
 });
 window.players=players;
 
@@ -771,7 +802,7 @@ document.querySelectorAll('.ep-link').forEach(btn=>{
 
 <a class="ss-badge" id="ssBadge" href="https://simplysite.me" target="_blank" rel="noopener noreferrer">
   <span class="ss-txt">Built by</span>
-  <img src="/simplysite-logo.png" width="480" height="122" alt="SimplySite">
+  <img src="/img/simplysite.webp" width="286" height="72" alt="SimplySite">
 </a>
 <script>
 // Step the floating credit aside once the footer, which carries the same credit, is on screen.

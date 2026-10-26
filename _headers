@@ -1,0 +1,14 @@
+# Cloudflare reads this file and applies the headers; it is not served.
+
+# Images and songs keep their file names when unchanged, so returning visitors
+# can reuse them for a week instead of re-checking each one on every visit.
+/img/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/audio/*
+  Cache-Control: public, max-age=604800
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
