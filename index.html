@@ -6,7 +6,7 @@
 <title>Camp Landau | Beit Shemesh's #1 Summer Camp</title>
 <meta name="description" content="Camp Landau is Ramat Beit Shemesh's #1 summer camp for English-speaking boys, grades 1 to 8. Sports, Swimming, Trips, Ruach, Shtick, and SO MUCH MORE!!!">
 <meta name="keywords" content="Camp Landau, Beit Shemesh summer camp, Jewish summer camp Israel, English summer camp Beit Shemesh, boys summer camp Israel, Camp Landau">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://camp-landau.com/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="512x512" href="/Favicon.png">
@@ -318,6 +318,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
 }
 
 .countdown-wrap{margin:20px auto 28px;text-align:center;animation:fadeUp .7s .65s both}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .countdown-label{font-family:'Figtree',sans-serif;font-size:clamp(15px,2vw,19px);font-weight:800;color:#fff;margin-bottom:15px;text-shadow:0 2px 8px rgba(0,0,0,.55);line-height:1.35}
 .countdown-grid{display:flex;align-items:center;justify-content:center;gap:10px}
 .cdown-unit{display:flex;flex-direction:column;align-items:center}
@@ -367,7 +368,10 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
   "@type": "WebSite",
   "@id": "https://camp-landau.com/#website",
   "name": "Camp Landau",
-  "url": "https://camp-landau.com/"
+  "url": "https://camp-landau.com/",
+  "description": "The website of Camp Landau, a summer camp in Ramat Beit Shemesh for English-speaking boys finishing grades 1 to 8.",
+  "inLanguage": "en",
+  "publisher": {"@id": "https://camp-landau.com/#organization"}
 }
 </script>
 <script type="application/ld+json">
@@ -391,6 +395,8 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     "https://24six.app/preview/music/artist/2650/camp-landau"
   ],
   "description": "Beit Shemesh's #1 summer camp for English-speaking boys finishing grades 1 to 8, with sports, swimming, trips, Ruach, games, shtick and so much more.",
+  "slogan": "The Most GISHMAK Summer of Your Life!",
+  "knowsLanguage": "en",
   "audience": {
     "@type": "PeopleAudience",
     "audienceType": "English-speaking boys finishing grades 1 to 8",
@@ -417,13 +423,16 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
       "@type": "ContactPoint",
       "name": "Rabbi Yehoshua Landau, Camp Director",
       "telephone": "+972-2-999-6341",
-      "contactType": "customer service"
+      "email": "Camp@Camp-Landau.com",
+      "contactType": "customer service",
+      "availableLanguage": "English"
     },
     {
       "@type": "ContactPoint",
       "name": "Mordy Landau",
       "telephone": "+972-58-675-8475",
-      "contactType": "customer service"
+      "contactType": "customer service",
+      "availableLanguage": "English"
     }
   ]
 }
@@ -473,7 +482,8 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <p>English speaking boys, grades 1 to 8. Beit&nbsp;Shemesh's #1 summer camp.</p>
     <div class="countdown-wrap" id="cdWrap">
       <div class="countdown-label">We can't wait to see you back in</div>
-      <div class="countdown-grid">
+      <p class="vh">Camp is back on <time datetime="2027-08-15T09:00">Sunday, August 15, 2027, at 9:00 AM</time>.</p>
+      <div class="countdown-grid" aria-hidden="true">
         <div class="cdown-unit">
           <div class="cdown-box">
             <span class="cdown-num" id="cd-days">00</span>

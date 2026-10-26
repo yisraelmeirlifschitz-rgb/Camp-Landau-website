@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Camp Songs and Music | Camp Landau</title>
 <meta name="description" content="Original Camp Landau songs. Play and download them right here, stream them on Spotify and 24six, and watch the music videos and the Kululam.">
-<meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">
+<meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1,max-snippet:-1">
 <link rel="canonical" href="https://camp-landau.com/music">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="512x512" href="/Favicon.png">
@@ -267,7 +267,13 @@ footer p{font-size:13px;color:rgba(255,255,255,.5)}
     <h2 class="sec-title" id="songs-title">Camp Songs</h2>
     <p class="sec-sub">Tap play to listen, or the arrow to download the song.</p>
     <div class="songs-card">
-      <div id="audioList">Loading songs...</div>
+      <!-- The songs as of the last update, for crawlers that don't run JavaScript. songs.js replaces them with whatever is in /audio now. -->
+      <div id="audioList">
+        <div class="song"><button class="song-btn" type="button" aria-label="Play Camp Landau 2025 Kululam"><svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></button><div class="song-main"><div class="song-name">Camp Landau 2025 Kululam</div></div><a class="song-dl" href="/audio/Camp%20Landau%202025%20Kululam.mp3" download="Camp Landau 2025 Kululam.mp3" title="Download Camp Landau 2025 Kululam" aria-label="Download Camp Landau 2025 Kululam"><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a></div>
+        <div class="song"><button class="song-btn" type="button" aria-label="Play Camp Landau Remix #1"><svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></button><div class="song-main"><div class="song-name">Camp Landau Remix #1</div></div><a class="song-dl" href="/audio/Camp%20Landau%20Remix%20%231.mp3" download="Camp Landau Remix #1.mp3" title="Download Camp Landau Remix #1" aria-label="Download Camp Landau Remix #1"><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a></div>
+        <div class="song"><button class="song-btn" type="button" aria-label="Play Camp Landau remix #2"><svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></button><div class="song-main"><div class="song-name">Camp Landau remix #2</div></div><a class="song-dl" href="/audio/Camp%20Landau%20remix%20%232.mp3" download="Camp Landau remix #2.mp3" title="Download Camp Landau remix #2" aria-label="Download Camp Landau remix #2"><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a></div>
+        <div class="song"><button class="song-btn" type="button" aria-label="Play See The Good"><svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></button><div class="song-main"><div class="song-name">See The Good</div></div><a class="song-dl" href="/audio/See%20The%20Good.mp3" download="See The Good.mp3" title="Download See The Good" aria-label="Download See The Good"><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg></a></div>
+      </div>
     </div>
   </div>
 </section>

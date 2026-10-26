@@ -98,7 +98,7 @@ The hero shows the big logo, so the nav's logo is hidden while the hero logo is 
 | GitHub API | songs list on home and `/music` (`songs.js`) | lists `/audio` so a newly uploaded song appears by itself |
 | Cloudflare Web Analytics | injected by Cloudflare | traffic stats |
 
-**Songs:** the player is `songs.js`, shared by the home page and `/music`. The list comes from the GitHub contents API for `/audio`, and the files play from this site (`/audio/...`). GitHub allows 60 API calls an hour per network, so `songs.js` has `SONGS_FALLBACK`. **When you add a song, add its file name there too.** `/#songs` and `/music#songs` both land on the player.
+**Songs:** the player is `songs.js`, shared by the home page and `/music`. The list comes from the GitHub contents API for `/audio`, and the files play from this site (`/audio/...`). GitHub allows 60 API calls an hour per network, so `songs.js` has `SONGS_FALLBACK`. **When you add a song, add its file name there too**, and a row for it in the static list in `music.html` (see GEO below). `/#songs` and `/music#songs` both land on the player.
 
 **See the Good players:** each Plyr player opens a ~1MB YouTube frame, so a player is built when its episode comes within 600px of the screen, never all seven on load.
 
@@ -107,9 +107,15 @@ The hero shows the big logo, so the nav's logo is hidden while the hero logo is 
 - Structured data: home has `WebSite` plus `SummerCamp` + `LocalBusiness` (address, phones, director, audience). Gallery is `ImageGallery`; videos is a `CollectionPage` and music a `WebPage`, each with one `VideoObject` per video; See the Good has one `VideoObject` per episode. Every page but home has a `BreadcrumbList` (Camp Landau > page).
 - `sitemap.xml` uses clean URLs, lists every gallery photo as an image entry (the gallery is built by script), and lists every video on `/videos`, `/music` and `/see-the-good` as video entries built from each page's VideoObject data. When an episode, video or photo is added, add it to the sitemap too and bump that page's `lastmod`. Submit `https://camp-landau.com/sitemap.xml` in Google Search Console (the site is already verified there).
 - **Sitelinks** (the menu of pages Google can show under the home result) are chosen by Google and can't be switched on. What helps, and is in place: one short, distinct title per page, the same menu and footer links on every page, breadcrumbs, a sitemap with every page, and no orphan pages. After a change to the pages, use URL Inspection in Search Console to request indexing of each new page.
-- `llms.txt` summarizes the camp for AI answer engines. Keep it in step with the Source of Truth.
+- `llms.txt` summarizes the camp for AI answer engines: key facts, every page, every video with its YouTube link, and the songs. Keep it in step with the Source of Truth, and add new videos and songs to it.
+- **GEO, what AI crawlers see:** most AI search crawlers (ChatGPT search, Perplexity, Claude) read the raw HTML and don't run JavaScript. So anything that matters is in the HTML itself, not only drawn by script:
+  - The home countdown's date is in a hidden sentence ("Camp is back on Sunday, August 15, 2027") for crawlers and screen readers. The ticking digits are `aria-hidden`. **When the date changes, change it there, in the countdown script and in `llms.txt`.**
+  - `/music` lists the songs in its HTML; `songs.js` replaces that list with whatever is in `/audio` once it runs.
+  - Video cards on home, `/videos` and `/music` are plain HTML. The gallery photos are still drawn by script, which Google renders but AI crawlers don't; they are images with no text to read, so little is lost.
+- Every indexable page allows full snippets and large previews (`max-snippet:-1`, `max-image-preview:large`), which Google's AI Overviews and Discover use.
 - `robots.txt` allows everyone. **Cloudflare's AI Crawl Control** still returns 403 to AI *training* crawlers (GPTBot, ClaudeBot, CCBot). Search and answer bots (Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot, PerplexityBot, Applebot) get through. The client is turning this on in the Cloudflare dashboard.
 - Every page has one `h1`, a `main` landmark with a skip link to it, canonical, description and share tags. The 404 page is `noindex` and has no canonical.
+- **Bing matters for GEO:** ChatGPT search leans on Bing's index. Bing Webmaster Tools can import the site straight from Google Search Console. Cloudflare's Crawler Hints (Caching > Configuration) pings Bing and others through IndexNow whenever a page changes.
 
 ## Known issues
 
