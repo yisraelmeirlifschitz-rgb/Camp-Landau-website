@@ -115,10 +115,10 @@ The hero shows the big logo, so the nav's logo is hidden while the hero logo is 
 - Every indexable page allows full snippets and large previews (`max-snippet:-1`, `max-image-preview:large`), which Google's AI Overviews and Discover use.
 - `robots.txt` allows everyone. **Cloudflare's AI Crawl Control** still returns 403 to AI *training* crawlers (GPTBot, ClaudeBot, CCBot). Search and answer bots (Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot, PerplexityBot, Applebot) get through. The client is turning this on in the Cloudflare dashboard.
 - Every page has one `h1`, a `main` landmark with a skip link to it, canonical, description and share tags. The 404 page is `noindex` and has no canonical.
+- **Domain setup (checked October 2026):** `http://` redirects (301) to `https://` (Cloudflare's Always Use HTTPS), and `www.camp-landau.com` redirects (301) to `https://camp-landau.com`, keeping the path and query. `http://www` takes two hops (to https, then off www), which is fine.
+- The client has submitted the sitemap in Google Search Console, imported the site into Bing Webmaster Tools and turned on Cloudflare Crawler Hints (October 2026).
 - **Bing matters for GEO:** ChatGPT search leans on Bing's index. Bing Webmaster Tools can import the site straight from Google Search Console. Cloudflare's Crawler Hints (Caching > Configuration) pings Bing and others through IndexNow whenever a page changes.
 
 ## Known issues
 
-- **`http://camp-landau.com` serves the site instead of redirecting to `https://`.** Turn on Always Use HTTPS in the Cloudflare dashboard (SSL/TLS > Edge Certificates). The canonicals already point at https, so this is tidy-up, not an emergency.
-- **`www.camp-landau.com` doesn't resolve.** Anyone typing www gets an error. Add a `www` DNS record in Cloudflare and a redirect rule to `https://camp-landau.com`.
 - At 360px the home page measures 2px wide because the music cards slide in from the side. The body's `overflow-x:hidden` clips it, so nothing scrolls.
